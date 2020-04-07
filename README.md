@@ -41,11 +41,11 @@ Then it would be decoded to **JsonUI** format:
       }
     },
     {
-      "questionPicker": {
+      "answerPicker": {
         "style": "singleChoice",
         "items": ["This is an answer A", "This is an answer B", "This is an answer C"],
-        "itemCorrect": ["This is an answer A"],
-        "titleCorrect": "Congratulations! Your anser is correct!",
+        "itemCorrect": [1],
+        "titleCorrect": "Congratulations! Your answer is correct!",
         "titleWrong": "Opps! Please try again!",
         "doneButtonTitle": "Done"
       }
@@ -53,6 +53,6 @@ Then it would be decoded to **JsonUI** format:
   ]
 }
 ```
-By using JsonUI client apps (iOS & Android), after scanning the QR code above, we get the UI look like this:
+By using **JsonUI** client apps (iOS & Android), after scanning the QR code above, we get the UI look like this:
 
 ![](srcs/rendered.png)
