@@ -43,10 +43,10 @@ Then it would be decoded to **JsonUI** format:
     {
       "answerPicker": {
         "style": "singleChoice",
-        "items": ["This is an answer A", "This is an answer B", "This is an answer C"],
-        "itemCorrect": [1],
-        "titleCorrect": "Congratulations! Your answer is correct!",
-        "titleWrong": "Opps! Please try again!",
+        "items": ["Very good", "Not really useful"],
+        "itemCorrect": [0],
+        "titleCorrect": "Thanks for your feedback!",
+        "titleWrong": "Opps! So sorry to hear that!",
         "doneButtonTitle": "Done"
       }
     }
