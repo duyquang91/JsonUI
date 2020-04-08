@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  JsonUI
+
+  Created by Steve Dao on 8/4/20.
+  Copyright © 2020 Steve Dao. All rights reserved.
+*/
+
+"welcome" = "Xin chào";
+"camera_permission_title" = "JsonUI sử dụng camera để quét mã QR, vui lòng cấp quyền cho ứng dụng";
+"allow" = "Cho phép";
+"camera_permission_deny_title" = "Từ chối";
+"camera_permission_deny_message" = "Yêu cầu truy cập camera bị từ chối, vui lòng vào cài đặt để cho phép.";
+"dismiss" = "Ẩn";
+
