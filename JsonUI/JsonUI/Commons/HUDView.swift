@@ -34,7 +34,7 @@ struct HUDView<Content>: View where Content: View {
                         Text("loading")
                     }
                     .frame(width: 120, height: 120, alignment: .center)
-                    .background(Color.white.opacity(0.8))
+                    .background(Color("white_black").opacity(0.8))
                     .cornerRadius(16)
                     .shadow(radius: 50)
                 }
