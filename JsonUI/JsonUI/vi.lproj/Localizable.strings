@@ -13,3 +13,8 @@
 "camera_permission_deny_message" = "Yêu cầu truy cập camera bị từ chối, vui lòng vào cài đặt để cho phép.";
 "dismiss" = "Ẩn";
 
+"user_name" = "Tên đăng nhập";
+"password" = "Mật khẩu";
+"login" = "Đăng nhập";
+"login_hint" = "Chưa có tài khoản? Vui lòng liên hệ ban quản trị Zent";
+"loading" = "Đang tải ...";

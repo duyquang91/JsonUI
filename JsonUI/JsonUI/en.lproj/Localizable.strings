@@ -13,3 +13,8 @@
 "camera_permission_deny_message" = "The camera permission is unauthorized, please go to Settings to enable.";
 "dismiss" = "Dismiss";
 
+"user_name" = "User name";
+"password" = "Password";
+"login" = "Login";
+"login_hint" = "Don't have an account? Please contact administrator of Zent";
+"loading" = "Loading ...";
