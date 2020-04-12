@@ -19,7 +19,9 @@ struct WelcomeView: View {
                 .font(.largeTitle)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            Text("camera_permission_title").font(.title)
+            Text("camera_permission_title")
+                .font(.title)
+                .opacity(0.8)
             
             LottieView(name: "qr_scanner")
             
@@ -30,17 +32,19 @@ struct WelcomeView: View {
                     self.viewModel.clickVoid = Void()
                 }) {
                     Text("allow")
-                    .bold()
-                    .font(.body)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
+                        .bold()
+                        .font(.body)
+                        .foregroundColor(Color("white_black"))
+                        .frame(maxWidth: .infinity)
+                        .padding()
                 }
             }
-            .background(Color.black)
+            .background(Color("black_white"))
             .cornerRadius(8)
             
-        }.padding().alert(isPresented: $viewModel.isUnauthorizedEnable) {
+        }
+        .padding()
+        .alert(isPresented: $viewModel.isUnauthorizedEnable) {
             Alert(title: Text("camera_permission_deny_title"), message: Text("camera_permission_deny_message"), dismissButton: .default(Text("dismiss")))
         }
     }

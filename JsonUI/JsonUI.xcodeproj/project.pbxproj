@@ -14,6 +14,13 @@
 		DC3EC5C1244061870068DEC9 /* APIClientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3EC5C0244061870068DEC9 /* APIClientResponse.swift */; };
 		DC3EC5C6244063FE0068DEC9 /* LoginRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3EC5C5244063FE0068DEC9 /* LoginRoute.swift */; };
 		DC3EC5C82440641C0068DEC9 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3EC5C72440641C0068DEC9 /* LoginResponse.swift */; };
+		DC8201E32442E6160022738C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC8201E22442E6160022738C /* IQKeyboardManagerSwift */; };
+		DC8201E72442E6DF0022738C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201E62442E6DF0022738C /* MainView.swift */; };
+		DC8201EA2442E7400022738C /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = DC8201E92442E7400022738C /* CodeScanner */; };
+		DC8201EF2442E93F0022738C /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201EE2442E93F0022738C /* HistoryView.swift */; };
+		DC8201F32442E9690022738C /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201F22442E9690022738C /* ScannerView.swift */; };
+		DC8201F52442EA510022738C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201F42442EA510022738C /* SettingsView.swift */; };
+		DC8201FA2442EBBB0022738C /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201F92442EBBB0022738C /* UserDefaultWrapper.swift */; };
 		DCC0F214243E299F00B95A61 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC0F213243E299F00B95A61 /* WelcomeViewModel.swift */; };
 		DCC0F217243E376C00B95A61 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DCC0F216243E376C00B95A61 /* Lottie */; };
 		DCC0F21A243E378F00B95A61 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC0F219243E378F00B95A61 /* LottieView.swift */; };
@@ -49,6 +56,11 @@
 		DC3EC5C0244061870068DEC9 /* APIClientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientResponse.swift; sourceTree = "<group>"; };
 		DC3EC5C5244063FE0068DEC9 /* LoginRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRoute.swift; sourceTree = "<group>"; };
 		DC3EC5C72440641C0068DEC9 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		DC8201E62442E6DF0022738C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		DC8201EE2442E93F0022738C /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		DC8201F22442E9690022738C /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		DC8201F42442EA510022738C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DC8201F92442EBBB0022738C /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultWrapper.swift; path = Views/UserDefaultWrapper.swift; sourceTree = "<group>"; };
 		DCC0F213243E299F00B95A61 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		DCC0F219243E378F00B95A61 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		DCC0F21C243E383100B95A61 /* qr_scanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qr_scanner.json; sourceTree = "<group>"; };
@@ -77,6 +89,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCC0F217243E376C00B95A61 /* Lottie in Frameworks */,
+				DC8201E32442E6160022738C /* IQKeyboardManagerSwift in Frameworks */,
+				DC8201EA2442E7400022738C /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,15 +129,84 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DCC0F218243E377700B95A61 /* Commons */ = {
+		DC8201E42442E6A50022738C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				DC8201ED2442E9210022738C /* Settings */,
+				DC8201EC2442E91C0022738C /* Scanner */,
+				DC8201EB2442E9150022738C /* History */,
+				DCDDEE86243E1AD0003E2542 /* Welcome */,
+				DCDDEE85243E1AC3003E2542 /* Login */,
+				DC8201E52442E6BD0022738C /* Main */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		DC8201E52442E6BD0022738C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DC8201E62442E6DF0022738C /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DC8201EB2442E9150022738C /* History */ = {
+			isa = PBXGroup;
+			children = (
+				DC8201EE2442E93F0022738C /* HistoryView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		DC8201EC2442E91C0022738C /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				DC8201F22442E9690022738C /* ScannerView.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		DC8201ED2442E9210022738C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DC8201F42442EA510022738C /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DC8201F62442EB3F0022738C /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				DCC0F219243E378F00B95A61 /* LottieView.swift */,
+				DCD44F502440CEF9005E32E9 /* UIActivityView.swift */,
+				DCD44F522440CF5F005E32E9 /* HUDView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DC8201F72442EB520022738C /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
 				DC3EC5BA24405BC50068DEC9 /* APIClient.swift */,
 				DC3EC5BC24405C380068DEC9 /* APIRoutable.swift */,
 				DC3EC5C0244061870068DEC9 /* APIClientResponse.swift */,
-				DCD44F502440CEF9005E32E9 /* UIActivityView.swift */,
-				DCD44F522440CF5F005E32E9 /* HUDView.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		DC8201F82442EB6A0022738C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DCC0F218243E377700B95A61 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				DC8201F82442EB6A0022738C /* Extensions */,
+				DC8201F62442EB3F0022738C /* Views */,
+				DC8201F92442EBBB0022738C /* UserDefaultWrapper.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -157,10 +240,10 @@
 		DCDDEE62243E1A7C003E2542 /* JsonUI */ = {
 			isa = PBXGroup;
 			children = (
+				DC8201F72442EB520022738C /* Repositories */,
 				DCC0F21B243E380E00B95A61 /* Assets */,
 				DCC0F218243E377700B95A61 /* Commons */,
-				DCDDEE86243E1AD0003E2542 /* Welcome */,
-				DCDDEE85243E1AC3003E2542 /* Login */,
+				DC8201E42442E6A50022738C /* Features */,
 				DCDDEE63243E1A7C003E2542 /* AppDelegate.swift */,
 				DCDDEE65243E1A7C003E2542 /* SceneDelegate.swift */,
 				DCDDEE67243E1A7C003E2542 /* ContentView.swift */,
@@ -227,6 +310,8 @@
 			name = JsonUI;
 			packageProductDependencies = (
 				DCC0F216243E376C00B95A61 /* Lottie */,
+				DC8201E22442E6160022738C /* IQKeyboardManagerSwift */,
+				DC8201E92442E7400022738C /* CodeScanner */,
 			);
 			productName = JsonUI;
 			productReference = DCDDEE60243E1A7C003E2542 /* JsonUI.app */;
@@ -281,6 +366,8 @@
 			mainGroup = DCDDEE57243E1A7B003E2542;
 			packageReferences = (
 				DCC0F215243E376C00B95A61 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				DC8201E12442E6160022738C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				DC8201E82442E7400022738C /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = DCDDEE61243E1A7C003E2542 /* Products */;
 			projectDirPath = "";
@@ -320,6 +407,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCC0F214243E299F00B95A61 /* WelcomeViewModel.swift in Sources */,
+				DC8201F32442E9690022738C /* ScannerView.swift in Sources */,
+				DC8201E72442E6DF0022738C /* MainView.swift in Sources */,
 				DC3EC5B7244055B70068DEC9 /* LoginView.swift in Sources */,
 				DCDDEE64243E1A7C003E2542 /* AppDelegate.swift in Sources */,
 				DCD44F532440CF5F005E32E9 /* HUDView.swift in Sources */,
@@ -333,7 +422,10 @@
 				DCC0F21A243E378F00B95A61 /* LottieView.swift in Sources */,
 				DC3EC5BD24405C380068DEC9 /* APIRoutable.swift in Sources */,
 				DC3EC5BB24405BC50068DEC9 /* APIClient.swift in Sources */,
+				DC8201FA2442EBBB0022738C /* UserDefaultWrapper.swift in Sources */,
+				DC8201EF2442E93F0022738C /* HistoryView.swift in Sources */,
 				DC3EC5C6244063FE0068DEC9 /* LoginRoute.swift in Sources */,
+				DC8201F52442EA510022738C /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,10 +599,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.stevedao.JsonUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duyquang.jsonui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -528,10 +620,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.stevedao.JsonUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duyquang.jsonui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -612,6 +704,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DC8201E12442E6160022738C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.5;
+			};
+		};
+		DC8201E82442E7400022738C /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:twostraws/CodeScanner.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
 		DCC0F215243E376C00B95A61 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:airbnb/lottie-ios.git";
@@ -623,6 +731,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DC8201E22442E6160022738C /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC8201E12442E6160022738C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		DC8201E92442E7400022738C /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC8201E82442E7400022738C /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
 		DCC0F216243E376C00B95A61 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DCC0F215243E376C00B95A61 /* XCRemoteSwiftPackageReference "lottie-ios" */;

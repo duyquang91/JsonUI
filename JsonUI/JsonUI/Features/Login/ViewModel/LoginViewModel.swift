@@ -8,6 +8,8 @@
 
 import Foundation
 import Combine
+import UIKit
+import SwiftUI
 
 class LoginViewModel: ObservableObject {
     
@@ -26,10 +28,11 @@ class LoginViewModel: ObservableObject {
     @Published var isLoginButtonEnable = false
     @Published var errorText = ""
     @Published var isLoading = false
-    @Published var userInfo: UserInfo?
+    @UserDefaultWrapper(key: "user_info", defaultValue: nil)
+    var userInfo: UserInfo?
     
-    // Private
     private var disposeStore = Set<AnyCancellable>()
+    
     
     init() {
         Publishers.CombineLatest($userName, $password)
@@ -44,12 +47,12 @@ class LoginViewModel: ObservableObject {
                 .receive(on: DispatchQueue.main)
                 .handleEvents(receiveSubscription: { [weak self] _ in
                     self?.isLoading = true
-                }, receiveOutput: { [weak self] _ in
-                    self?.isLoading = false
-                }, receiveCompletion: { [weak self] _ in
-                    self?.isLoading = false
-                }, receiveCancel: { [weak self] in
-                    self?.isLoading = false
+                    }, receiveOutput: { [weak self] _ in
+                        self?.isLoading = false
+                    }, receiveCompletion: { [weak self] _ in
+                        self?.isLoading = false
+                    }, receiveCancel: { [weak self] in
+                        self?.isLoading = false
                 })
                 .catch { Just(LoginResponse(status: APIClientResponseStatus(code: 1, message: $0.localizedDescription), data: nil))} }
             .switchToLatest()

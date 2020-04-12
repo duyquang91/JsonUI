@@ -18,3 +18,7 @@
 "login" = "Đăng nhập";
 "login_hint" = "Chưa có tài khoản? Vui lòng liên hệ ban quản trị Zent";
 "loading" = "Đang tải ...";
+
+"history" = "Lịch sử";
+"scanner" = "Quét mã";
+"settings" = "Cài đặt";

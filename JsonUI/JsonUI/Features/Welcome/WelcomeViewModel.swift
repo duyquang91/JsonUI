@@ -9,6 +9,8 @@
 import Foundation
 import Combine
 import AVFoundation
+import UIKit
+import SwiftUI
 
 class WelcomeViewModel: ObservableObject {
     
@@ -17,9 +19,8 @@ class WelcomeViewModel: ObservableObject {
     
     // Output
     @Published var isUnauthorizedEnable = false
-    @Published var isAuthorizedEnable = false
     
-    private var disposeCancellable = Set<AnyCancellable>()
+    var disposeStore = Set<AnyCancellable>()
     
     init() {
         $clickVoid
@@ -28,12 +29,15 @@ class WelcomeViewModel: ObservableObject {
                 if AVCaptureDevice.authorizationStatus(for: .video) != .authorized {
                     AVCaptureDevice.requestAccess(for: .video) { isEnable in
                         DispatchQueue.main.async {
-                            self?.isAuthorizedEnable = isEnable
                             self?.isUnauthorizedEnable = !isEnable
+                            if isEnable {
+                                guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+                                keyWindow.rootViewController = UIHostingController(rootView: LoginView())
+                            }
                         }
                     }
                 }
             })
-            .store(in: &disposeCancellable)
+            .store(in: &disposeStore)
     }
 }

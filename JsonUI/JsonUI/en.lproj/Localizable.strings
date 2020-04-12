@@ -18,3 +18,7 @@
 "login" = "Login";
 "login_hint" = "Don't have an account? Please contact administrator of Zent";
 "loading" = "Loading ...";
+
+"history" = "History";
+"scanner" = "Scanner";
+"settings" = "Settings";
