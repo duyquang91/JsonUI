@@ -43,13 +43,13 @@ struct LoginView: View {
                             Text("login")
                                 .bold()
                                 .font(.body)
-                                .foregroundColor(Color("white_black"))
+                                .foregroundColor(Color("white_black")).padding()
+                                .frame(maxWidth:.infinity)
+                                .background(Color("black_white"))
+                                .cornerRadius(8)
                         }
                         .disabled(!self.viewModel.isLoginButtonEnable)
-                        .padding()
-                        .frame(maxWidth:.infinity)
-                        .background(Color("black_white"))
-                        .cornerRadius(8)
+                        
                         
                         Text("login_hint")
                             .font(.footnote).opacity(0.5)
@@ -59,10 +59,6 @@ struct LoginView: View {
                         
                     }
                 }.padding()
-            }
-
-            if viewModel.userInfo != nil {
-                MainView()
             }
         }
     }

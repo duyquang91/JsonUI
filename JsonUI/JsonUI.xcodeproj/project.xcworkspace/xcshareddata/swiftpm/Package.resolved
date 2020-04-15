@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "CodeScanner",
-        "repositoryURL": "git@github.com:twostraws/CodeScanner.git",
-        "state": {
-          "branch": null,
-          "revision": "0519543ae943db85b360a96962242887daeca2b5",
-          "version": "1.0.3"
-        }
-      },
-      {
         "package": "IQKeyboardManagerSwift",
         "repositoryURL": "git@github.com:hackiftekhar/IQKeyboardManager.git",
         "state": {

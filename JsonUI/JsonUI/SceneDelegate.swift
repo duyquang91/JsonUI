@@ -11,6 +11,9 @@ import SwiftUI
 import AVFoundation
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
+    @UserDefaultWrapper(key: "user_info", defaultValue: nil)
+    var userInfo: UserInfo?
 
     var window: UIWindow?
 
@@ -23,7 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             if AVCaptureDevice.authorizationStatus(for: .video) == .authorized {
-                window.rootViewController = UIHostingController(rootView: LoginView())
+                if userInfo == nil {
+                    window.rootViewController = UIHostingController(rootView: LoginView())
+                } else {
+                    window.rootViewController = UIHostingController(rootView: MainView())
+                }
             } else {
                 window.rootViewController = UIHostingController(rootView: WelcomeView())
             }

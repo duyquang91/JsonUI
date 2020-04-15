@@ -16,7 +16,6 @@
 		DC3EC5C82440641C0068DEC9 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3EC5C72440641C0068DEC9 /* LoginResponse.swift */; };
 		DC8201E32442E6160022738C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC8201E22442E6160022738C /* IQKeyboardManagerSwift */; };
 		DC8201E72442E6DF0022738C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201E62442E6DF0022738C /* MainView.swift */; };
-		DC8201EA2442E7400022738C /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = DC8201E92442E7400022738C /* CodeScanner */; };
 		DC8201EF2442E93F0022738C /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201EE2442E93F0022738C /* HistoryView.swift */; };
 		DC8201F32442E9690022738C /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201F22442E9690022738C /* ScannerView.swift */; };
 		DC8201F52442EA510022738C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201F42442EA510022738C /* SettingsView.swift */; };
@@ -25,6 +24,8 @@
 		DCC0F217243E376C00B95A61 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DCC0F216243E376C00B95A61 /* Lottie */; };
 		DCC0F21A243E378F00B95A61 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC0F219243E378F00B95A61 /* LottieView.swift */; };
 		DCC0F21D243E383100B95A61 /* qr_scanner.json in Resources */ = {isa = PBXBuildFile; fileRef = DCC0F21C243E383100B95A61 /* qr_scanner.json */; };
+		DCCACECC24474F4A00065EEF /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCACECB24474F4A00065EEF /* CodeScannerView.swift */; };
+		DCCACECE244750F200065EEF /* Notification+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCACECD244750F200065EEF /* Notification+Extensions.swift */; };
 		DCD44F512440CEF9005E32E9 /* UIActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD44F502440CEF9005E32E9 /* UIActivityView.swift */; };
 		DCD44F532440CF5F005E32E9 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD44F522440CF5F005E32E9 /* HUDView.swift */; };
 		DCDDEE64243E1A7C003E2542 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDDEE63243E1A7C003E2542 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 		DCDDEE7B243E1A7D003E2542 /* JsonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDDEE7A243E1A7D003E2542 /* JsonUITests.swift */; };
 		DCDDEE88243E1AFC003E2542 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDDEE87243E1AFC003E2542 /* WelcomeView.swift */; };
 		DCDDEE8C243E1CEA003E2542 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCDDEE8E243E1CEA003E2542 /* Localizable.strings */; };
+		DCF1727C24474A2B00D3E6A8 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1727B24474A2B00D3E6A8 /* ResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		DCC0F213243E299F00B95A61 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		DCC0F219243E378F00B95A61 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		DCC0F21C243E383100B95A61 /* qr_scanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qr_scanner.json; sourceTree = "<group>"; };
+		DCCACECB24474F4A00065EEF /* CodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScannerView.swift; sourceTree = "<group>"; };
+		DCCACECD244750F200065EEF /* Notification+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extensions.swift"; sourceTree = "<group>"; };
 		DCD44F502440CEF9005E32E9 /* UIActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityView.swift; sourceTree = "<group>"; };
 		DCD44F522440CF5F005E32E9 /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
 		DCDDEE60243E1A7C003E2542 /* JsonUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JsonUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +85,7 @@
 		DCDDEE8B243E1CD5003E2542 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		DCDDEE8D243E1CEA003E2542 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DCDDEE8F243E1CEE003E2542 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DCF1727B24474A2B00D3E6A8 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +95,6 @@
 			files = (
 				DCC0F217243E376C00B95A61 /* Lottie in Frameworks */,
 				DC8201E32442E6160022738C /* IQKeyboardManagerSwift in Frameworks */,
-				DC8201EA2442E7400022738C /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				DC8201F22442E9690022738C /* ScannerView.swift */,
+				DCF1727B24474A2B00D3E6A8 /* ResultView.swift */,
+				DCCACECB24474F4A00065EEF /* CodeScannerView.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 		DC8201F82442EB6A0022738C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DCCACECD244750F200065EEF /* Notification+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -311,7 +318,6 @@
 			packageProductDependencies = (
 				DCC0F216243E376C00B95A61 /* Lottie */,
 				DC8201E22442E6160022738C /* IQKeyboardManagerSwift */,
-				DC8201E92442E7400022738C /* CodeScanner */,
 			);
 			productName = JsonUI;
 			productReference = DCDDEE60243E1A7C003E2542 /* JsonUI.app */;
@@ -367,7 +373,6 @@
 			packageReferences = (
 				DCC0F215243E376C00B95A61 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				DC8201E12442E6160022738C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				DC8201E82442E7400022738C /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = DCDDEE61243E1A7C003E2542 /* Products */;
 			projectDirPath = "";
@@ -411,6 +416,8 @@
 				DC8201E72442E6DF0022738C /* MainView.swift in Sources */,
 				DC3EC5B7244055B70068DEC9 /* LoginView.swift in Sources */,
 				DCDDEE64243E1A7C003E2542 /* AppDelegate.swift in Sources */,
+				DCF1727C24474A2B00D3E6A8 /* ResultView.swift in Sources */,
+				DCCACECC24474F4A00065EEF /* CodeScannerView.swift in Sources */,
 				DCD44F532440CF5F005E32E9 /* HUDView.swift in Sources */,
 				DCD44F512440CEF9005E32E9 /* UIActivityView.swift in Sources */,
 				DCDDEE66243E1A7C003E2542 /* SceneDelegate.swift in Sources */,
@@ -422,6 +429,7 @@
 				DCC0F21A243E378F00B95A61 /* LottieView.swift in Sources */,
 				DC3EC5BD24405C380068DEC9 /* APIRoutable.swift in Sources */,
 				DC3EC5BB24405BC50068DEC9 /* APIClient.swift in Sources */,
+				DCCACECE244750F200065EEF /* Notification+Extensions.swift in Sources */,
 				DC8201FA2442EBBB0022738C /* UserDefaultWrapper.swift in Sources */,
 				DC8201EF2442E93F0022738C /* HistoryView.swift in Sources */,
 				DC3EC5C6244063FE0068DEC9 /* LoginRoute.swift in Sources */,
@@ -590,6 +598,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"JsonUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 8C98S3WY53;
 				ENABLE_PREVIEWS = YES;
@@ -599,6 +608,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duyquang.jsonui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -611,6 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"JsonUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 8C98S3WY53;
 				ENABLE_PREVIEWS = YES;
@@ -620,6 +631,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duyquang.jsonui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -712,14 +724,6 @@
 				minimumVersion = 6.5.5;
 			};
 		};
-		DC8201E82442E7400022738C /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:twostraws/CodeScanner.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.3;
-			};
-		};
 		DCC0F215243E376C00B95A61 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:airbnb/lottie-ios.git";
@@ -735,11 +739,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DC8201E12442E6160022738C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
-		};
-		DC8201E92442E7400022738C /* CodeScanner */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DC8201E82442E7400022738C /* XCRemoteSwiftPackageReference "CodeScanner" */;
-			productName = CodeScanner;
 		};
 		DCC0F216243E376C00B95A61 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;

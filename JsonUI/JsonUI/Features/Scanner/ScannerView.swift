@@ -7,10 +7,28 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 struct ScannerView: View {
+    
+    @State var isShowResult = false
+    @State var qrCode = ""
+    
     var body: some View {
-        Text("scanner")
+        VStack(alignment: .leading, spacing: 8) {
+            CodeScannerView(codeTypes: [.qr], simulatedData: "Hello world") { result in
+                if let qr = try? result.get() {
+                    self.qrCode = qr
+                }
+                self.isShowResult = true
+
+             }
+        }.sheet(isPresented: $isShowResult) {
+            ResultView(qrCode: self.$qrCode)
+                .onAppear() {
+                    NotificationCenter.default.post(Notification.init(name: Notification.codeScannerStopScanning)) }
+                .onDisappear() {NotificationCenter.default.post(Notification.init(name: Notification.codeScannerResumeScanning)) }
+        }
     }
 }
 
