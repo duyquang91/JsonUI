@@ -66,7 +66,7 @@ All UI components will be stored in the `formBody` key of json. The value of `fo
 
 ```json
 {
-  "formTitle": "Title of form"
+  "formTitle": "Title of form",
   "formBody": []
 }
 ```
