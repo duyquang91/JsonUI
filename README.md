@@ -64,6 +64,29 @@ By using **JsonUI** client apps (iOS & Android), after scanning the QR code abov
 
 All UI components will be stored in the `formBody` key of json. The value of `formBody` key is an array consists of UI elements.
 
+```json
+{
+  "formTitle": "Title of form"
+  "formBody": []
+}
+```
+The value of `formTitle` key will be rendered as top title on the client mobile App.
+
 ### Label
-Label will be stored in the `label` key inside the `formBody`.   
-Label will be rendered as a text with configurations.
+Label will be stored in the `label` key inside the `formBody`. Label will be rendered as a text with configurations:
+```json
+{
+  "formBody": [{
+    "label": {
+      "string": "This is a text of label",
+      "style": "body",
+      "alignment": "center" }
+    }]
+}
+```
+
+| key | description | value | required | default |
+| ----- | ----- | ----- | ----- | ----- |
+| string | String will be rendered as label | | yes | |
+| style | Font style format will be applied to label | largeTitle, title, headline, subheadline, body, footnote | no | body |
+| alignment | The text alignment will be applied to label | left, center, right | no | left |
