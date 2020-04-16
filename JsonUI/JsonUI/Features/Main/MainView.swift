@@ -16,14 +16,17 @@ struct MainView: View {
         TabView(selection: $tabSelection) {
             HistoryView().tabItem {
                 Text("history")
+                Image(systemName: "clock")
             }.tag(0)
             
             ScannerView().tabItem {
                 Text("scanner")
+                Image(systemName: "qrcode.viewfinder")
             }.tag(1)
             
             SettingsView().tabItem {
                 Text("settings")
+                Image(systemName: "gear")
             }.tag(2)
         }
     }
