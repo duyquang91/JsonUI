@@ -20,6 +20,9 @@
 		DC8201F32442E9690022738C /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201F22442E9690022738C /* ScannerView.swift */; };
 		DC8201F52442EA510022738C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201F42442EA510022738C /* SettingsView.swift */; };
 		DC8201FA2442EBBB0022738C /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201F92442EBBB0022738C /* UserDefaultWrapper.swift */; };
+		DCB8242C2448582900FA0D89 /* Text+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8242B2448582900FA0D89 /* Text+Extensions.swift */; };
+		DCB824352448903100FA0D89 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB824342448903100FA0D89 /* Font+Extensions.swift */; };
+		DCB824372448969B00FA0D89 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB824362448969B00FA0D89 /* String+Extensions.swift */; };
 		DCC0F214243E299F00B95A61 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC0F213243E299F00B95A61 /* WelcomeViewModel.swift */; };
 		DCC0F217243E376C00B95A61 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DCC0F216243E376C00B95A61 /* Lottie */; };
 		DCC0F21A243E378F00B95A61 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC0F219243E378F00B95A61 /* LottieView.swift */; };
@@ -63,6 +66,9 @@
 		DC8201F22442E9690022738C /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		DC8201F42442EA510022738C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DC8201F92442EBBB0022738C /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultWrapper.swift; path = Views/UserDefaultWrapper.swift; sourceTree = "<group>"; };
+		DCB8242B2448582900FA0D89 /* Text+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extensions.swift"; sourceTree = "<group>"; };
+		DCB824342448903100FA0D89 /* Font+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extensions.swift"; sourceTree = "<group>"; };
+		DCB824362448969B00FA0D89 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		DCC0F213243E299F00B95A61 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		DCC0F219243E378F00B95A61 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		DCC0F21C243E383100B95A61 /* qr_scanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qr_scanner.json; sourceTree = "<group>"; };
@@ -204,8 +210,18 @@
 			isa = PBXGroup;
 			children = (
 				DCCACECD244750F200065EEF /* Notification+Extensions.swift */,
+				DCB8242B2448582900FA0D89 /* Text+Extensions.swift */,
+				DCB824342448903100FA0D89 /* Font+Extensions.swift */,
+				DCB824362448969B00FA0D89 /* String+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DCB8242D24485C8C00FA0D89 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		DCC0F218243E377700B95A61 /* Commons */ = {
@@ -247,6 +263,7 @@
 		DCDDEE62243E1A7C003E2542 /* JsonUI */ = {
 			isa = PBXGroup;
 			children = (
+				DCB8242D24485C8C00FA0D89 /* UIComponents */,
 				DC8201F72442EB520022738C /* Repositories */,
 				DCC0F21B243E380E00B95A61 /* Assets */,
 				DCC0F218243E377700B95A61 /* Commons */,
@@ -411,6 +428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCB8242C2448582900FA0D89 /* Text+Extensions.swift in Sources */,
 				DCC0F214243E299F00B95A61 /* WelcomeViewModel.swift in Sources */,
 				DC8201F32442E9690022738C /* ScannerView.swift in Sources */,
 				DC8201E72442E6DF0022738C /* MainView.swift in Sources */,
@@ -422,7 +440,9 @@
 				DCD44F512440CEF9005E32E9 /* UIActivityView.swift in Sources */,
 				DCDDEE66243E1A7C003E2542 /* SceneDelegate.swift in Sources */,
 				DC3EC5B9244055C70068DEC9 /* LoginViewModel.swift in Sources */,
+				DCB824352448903100FA0D89 /* Font+Extensions.swift in Sources */,
 				DCDDEE68243E1A7C003E2542 /* ContentView.swift in Sources */,
+				DCB824372448969B00FA0D89 /* String+Extensions.swift in Sources */,
 				DC3EC5C82440641C0068DEC9 /* LoginResponse.swift in Sources */,
 				DCDDEE88243E1AFC003E2542 /* WelcomeView.swift in Sources */,
 				DC3EC5C1244061870068DEC9 /* APIClientResponse.swift in Sources */,
@@ -598,7 +618,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"JsonUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 8C98S3WY53;
 				ENABLE_PREVIEWS = YES;
@@ -621,7 +641,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"JsonUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 8C98S3WY53;
 				ENABLE_PREVIEWS = YES;

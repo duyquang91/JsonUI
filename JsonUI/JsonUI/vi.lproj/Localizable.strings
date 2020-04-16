@@ -24,3 +24,7 @@
 "settings" = "Cài đặt";
 
 "scan" = "Quét";
+"render_failed" = "Không thể hiển thị giao diện vì lỗi định dạng";
+
+"result" = "Kết quả";
+

@@ -24,3 +24,6 @@
 "settings" = "Settings";
 
 "scan" = "Scan";
+"render_failed" = "Failed to render JsonUI due to incorrect format";
+
+"result" = "Result";

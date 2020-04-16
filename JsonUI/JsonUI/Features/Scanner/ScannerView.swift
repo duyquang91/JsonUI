@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import CodeScanner
 
 struct ScannerView: View {
     
@@ -24,7 +23,7 @@ struct ScannerView: View {
 
              }
         }.sheet(isPresented: $isShowResult) {
-            ResultView(qrCode: self.$qrCode)
+            ResultView(qrCode: self.qrCode)
                 .onAppear() {
                     NotificationCenter.default.post(Notification.init(name: Notification.codeScannerStopScanning)) }
                 .onDisappear() {NotificationCenter.default.post(Notification.init(name: Notification.codeScannerResumeScanning)) }
