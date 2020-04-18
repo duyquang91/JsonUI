@@ -1,92 +1,65 @@
-# JsonUI
+# Zent Scanner
 
-## Overview
+## Tổng quan
 
-An open-source platform that helps you render & interact the UI from Json quickly. For an example, we have a QR code look like this:
+Zent Scanner là ứng dụng di động hỗ trợ quá trình học tập tại trung tâm Zent. Sử dụng Zent Scanner để quét mã QR code và trả lời câu hỏi, câu hỏi có thể ở dạng trắc nghiệm hoặc tự luận.  
+Ví dụ chúng ta có mã QR code sau:
 
 ![](srcs/qrcode.png)
 
-Then it would be decoded to **JsonUI** format:
-```json
-{
-  "version": "1.0.0",
-  "requestEndpoint": "https://staging.zentapi.com?formId=123456",
-  "requestMethod": "POST",
-  "requestHeader": {
-    "content-type": "Application/JSON"
-  },
-  "requestBody": {
-    "userId": "$userId",
-    "answer": "$selectedValue"
-  },
-  "formTitle": "The title form",
-  "formBody": [
-    {
-      "label": {
-      "string": "How do you think about us?",
-      "style": "title"
-      }
-    },
-    {
-      "label": {
-        "string": "Please choose an interaction bellow to tell about us",
-        "style": "body"
-      }
-    },
-    {
-      "image": {
-        "url": "https://staging.zentapi.com/images?formId=123456"
-      }
-    },
-    {
-      "spacing": {
-        "style": "normal"
-      }
-    },
-    {
-      "answerPicker": {
-        "style": "singleChoice",
-        "items": ["Very good", "Not really useful"],
-        "itemCorrect": [0],
-        "titleCorrect": "Thanks for your feedback!",
-        "titleWrong": "Opps! So sorry to hear that!",
-        "doneButtonTitle": "Done"
-      }
-    }
-  ]
-}
-```
-By using **JsonUI** client apps (iOS & Android), after scanning the QR code above, we get the UI look like this:
+Sau khi sử dụng ứng dụng Zent Scanner trên iOS hoặc Android để quét mã QR code trên, câu hỏi sẽ xuất hiện và học viên sẽ lựa chọn câu trả lời.
 
 ![](srcs/rendered.png)
 
-## UI Components
+## Cấu trúc QR Code
 
-All UI components will be stored in the `formBody` key of json. The value of `formBody` key is an array consists of UI elements.
+Mã QR code trên được tạo ra bởi đoạn json sau:
 
 ```json
 {
-  "formTitle": "Title of form",
-  "formBody": []
+  "questionId": "abc1234xyz",
+  "questionType": "singleChoice",
+  "questionTitle": "Lịch sử",
+  "questionMessage": "Đâu là tên gọi đầu tiên của nước Việt Nam?",
+  "options": [
+    "Xích Quỷ",
+    "Văn Lang",
+    "Âu Lạc",
+    "Nam Việt",
+    "Bộ Giao Chỉ"],
+  "answers": ["Âu Lạc"],
+  "answersSuccess": "Chúc mừng bạn đã trả lời đúng",
+  "answersFail": "Bạn đã trả lời sai, vui lòng thử lại nhé",
+  "requestUrl": "https://staging.zent.com",
 }
 ```
-The value of `formTitle` key will be rendered as top title on the client mobile App.
 
-### Label
-Label will be stored in the `label` key inside the `formBody`. Label will be rendered as a text with configurations:
+
+| từ khoá | mô tả | yêu cầu |
+| ----- | ----- | ----- |
+| questionId | Mã định danh câu hỏi được Backend định nghĩa. Giá trị này sẽ được gửi lên server khi học viên trả lời câu hỏi | bắt buộc |
+| questionType | Kiểu câu hỏi, chỉ được chọn 1 trong các giá trị sau: <br> `singleChoice`: Câu hỏi trắc nghiệm chỉ có 1 đáp án đúng <br> `multiChoice`: Câu hỏi trắc nghiệm có nhiều đáp án <br> `input`: Câu hỏi tự luận | bắt buộc |
+| questionTitle | Tiêu đề ngắn ngọn của câu hỏi, thường là chủ đề của câu hỏi | tuỳ chọn |
+| questionMessage | Nội dung câu hỏi | bắt buộc |
+| options | Mảng các câu trả lời. Nếu là câu hỏi tự luận, vui lòng bỏ trống trường này | tuỳ chọn |
+| answers | Mảng các câu trả lời đúng. <br> Mảng có 1 giá trị nếu là câu hỏi trắc nghiệm chỉ có 1 đáp án đúng. <br> Mảng có nhiều giá trị nếu là câu hỏi trắc nghiệm có nhiều đáp án đúng. <br> Nếu là câu hỏi tự luận, vui lòng bỏ qua trường này. | tuỳ chọn |
+| answersSuccess | Nội dung sẽ xuất hiện khi học viên trả lời đúng câu hỏi trắc nghiệm hoặc hoàn thành câu hỏi tự luận | bắt buộc |
+| answersFail | Nội dung sẽ xuất hiện khi học viên trả lời sai câu hỏi trắc nghiệm. Vui lòng bỏ qua trường này nếu là câu hỏi tự luận | tuỳ chọn |
+| requestUrl | Ứng dụng sử dụng giá trị này để gửi kết quả lên server, nếu trường này trống, ứng dụng sẽ hiển thị `answersSuccess` ngay lập tức | tuỳ chọn |
+
+## Gửi kết quả lên server
+
+Sau khi học viên trả lời câu hỏi, nếu giá trị `requestUrl` được cung cấp, ứng dụng sẽ gửi 1 request lên server với nội dung:  
+* url: `requestUrl`
+* method: POST
+* body:
 ```json
-{
-  "formBody": [{
-    "label": {
-      "string": "This is a text of label",
-      "style": "body",
-      "alignment": "center" }
-    }]
-}
+"userEmail": $userEmail,
+"questionId": $questionId,
+"answers": ["answer here", "and here"]
 ```
 
-| key | description | value | required | default |
-| ----- | ----- | ----- | ----- | ----- |
-| string | String will be rendered as label | | yes | |
-| style | Font style format will be applied to label | largeTitle, title, headline, subheadline, body, footnote | no | body |
-| alignment | The text alignment will be applied to label | left, center, right | no | left |
+> Trong đó:
+> `userEmail`: email mà học viên đã đăng nhập vào ứng dụng trên mobile
+> `questionId`: mã định danh câu hỏi lấy từ QR code
+> `answers` Mảng string các câu trả lời của học viên. <br> Trường hợp câu hỏi trắc nghiệm chỉ có 1 đáp án đúng, mảng này chỉ có 1 giá trị. <br> Trường hợp câu hỏi trắc nghiệm có nhiều đáp án đúng, mảng này có nhiều giá trị. <br> Trường hợp câu hỏi tự luận, mảng này chỉ có 1 giá trị.
