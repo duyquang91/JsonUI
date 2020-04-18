@@ -62,4 +62,7 @@ Sau khi học viên trả lời câu hỏi, nếu giá trị `requestUrl` đư�
 > Trong đó:
 > `userEmail`: email mà học viên đã đăng nhập vào ứng dụng trên mobile
 > `questionId`: mã định danh câu hỏi lấy từ QR code
-> `answers` Mảng string các câu trả lời của học viên. <br> Trường hợp câu hỏi trắc nghiệm chỉ có 1 đáp án đúng, mảng này chỉ có 1 giá trị. <br> Trường hợp câu hỏi trắc nghiệm có nhiều đáp án đúng, mảng này có nhiều giá trị. <br> Trường hợp câu hỏi tự luận, mảng này chỉ có 1 giá trị.
+> `answers` Mảng string các câu trả lời của học viên.
+> Trường hợp câu hỏi trắc nghiệm chỉ có 1 đáp án đúng, mảng này chỉ có 1 giá trị.
+> Trường hợp câu hỏi trắc nghiệm có nhiều đáp án đúng, mảng này có nhiều giá trị.
+> Trường hợp câu hỏi tự luận, mảng này chỉ có 1 giá trị.
