@@ -105,7 +105,7 @@ Dưới đây là 1 số mẫu QR code dùng để thử nghiệm
 {
   "questionId": "abc1234xyz",
   "questionType": "multiChoice",
-  "questionTitle": "Lịch sử",
+  "questionTitle": "Toán học",
   "questionMessage": "1 cộng với 1 bằng bao nhiêu?",
   "options": [
     "2",
