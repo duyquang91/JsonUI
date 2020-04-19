@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import JsonUI
 
 class JsonUITests: XCTestCase {
 

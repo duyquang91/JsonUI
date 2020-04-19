@@ -13,3 +13,9 @@ extension String {
         NSLocalizedString(self, comment: self)
     }
 }
+
+extension URLResponse {
+    static var empty: URLResponse {
+        URLResponse(url: URL(string: "https://google.com")!, mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
+    }
+}

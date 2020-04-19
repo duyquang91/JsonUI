@@ -21,10 +21,24 @@
 
 "history" = "Lịch sử";
 "scanner" = "Quét mã";
-"settings" = "Cài đặt";
+"account" = "Tài khoản";
 
 "scan" = "Quét";
-"render_failed" = "Không thể hiển thị giao diện vì lỗi định dạng";
+"render_failed" = "Không thể hiển thị giao diện vì định dạng QR code không đúng";
 
 "result" = "Kết quả";
+"error" = "Lỗi";
+"answer" = "Trả lời";
+"submit" = "Hoàn thành";
+"submit_failed" = "Không thể kết nối tới máy chủ. Đảm bảo bạn đang kết nối vào mạng internet và thử lại sau!";
+
+"email" = "Email";
+"name" = "Tên";
+"address" = "Địa chỉ";
+"mobile" = "Di động";
+
+"logout" = "Đăng xuất";
+
+
+
 

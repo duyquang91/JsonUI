@@ -5,7 +5,7 @@
 Zent Scanner là ứng dụng di động hỗ trợ quá trình học tập tại trung tâm Zent. Sử dụng Zent Scanner để quét mã QR code và trả lời câu hỏi, câu hỏi có thể ở dạng trắc nghiệm hoặc tự luận.  
 Ví dụ chúng ta có mã QR code sau:
 
-![](srcs/qrcode.png)
+![](srcs/qrcode2.png)
 
 Sau khi sử dụng ứng dụng Zent Scanner trên iOS hoặc Android để quét mã QR code trên, câu hỏi sẽ xuất hiện và học viên sẽ lựa chọn câu trả lời.
 
@@ -66,3 +66,71 @@ Sau khi học viên trả lời câu hỏi, nếu giá trị `requestUrl` đư�
 > Trường hợp câu hỏi trắc nghiệm chỉ có 1 đáp án đúng, mảng này chỉ có 1 giá trị.
 > Trường hợp câu hỏi trắc nghiệm có nhiều đáp án đúng, mảng này có nhiều giá trị.
 > Trường hợp câu hỏi tự luận, mảng này chỉ có 1 giá trị.
+
+Sau khi phía server xử lý xong phải trả về HTTP Code như sau:
+* 200: Đã xử lý câu trả lời thành công, mobile app sẽ hiện nội dung của `answersSuccess` lấy từ QR code.
+* khác 200: mobile app sẽ hiện thông báo lỗi.
+
+##  Mẫu QR code
+Dưới đây là 1 số mẫu QR code dùng để thử nghiệm
+
+#### Câu hỏi trắc nghiệm chỉ có 1 đáp án đúng
+
+![](srcs/qrcode0.png)
+
+```json
+{
+  "questionId": "abc1234xyz",
+  "questionType": "singleChoice",
+  "questionTitle": "Lịch sử",
+  "questionMessage": "Đâu là tên gọi đầu tiên của nước Việt Nam?",
+  "options": [
+    "Xích Quỷ",
+    "Văn Lang",
+    "Âu Lạc",
+    "Nam Việt",
+    "Bộ Giao Chỉ"],
+  "answers": ["Âu Lạc"],
+  "answersSuccess": "Chúc mừng bạn đã trả lời đúng",
+  "answersFail": "Bạn đã trả lời sai, vui lòng thử lại nhé",
+  "requestUrl": "https://stag.devmind.edu.vn/api/login",
+}
+```
+
+#### Câu hỏi trắc nghiệm có nhiều đáp án đúng
+
+![](srcs/qrcode1.png)
+
+```json
+{
+  "questionId": "abc1234xyz",
+  "questionType": "multiChoice",
+  "questionTitle": "Lịch sử",
+  "questionMessage": "1 cộng với 1 bằng bao nhiêu?",
+  "options": [
+    "2",
+    "3",
+    "Bốn",
+    "Hai",
+    "Mười"],
+  "answers": ["2", "Hai"],
+  "answersSuccess": "Chúc mừng bạn đã trả lời đúng",
+  "answersFail": "Bạn đã trả lời sai, vui lòng thử lại nhé",
+  "requestUrl": "https://stag.devmind.edu.vn/api/login",
+}
+```
+
+#### Câu hỏi tự luận
+
+![](srcs/qrcode2.png)
+
+```json
+{
+  "questionId": "abc1234xyz",
+  "questionType": "input",
+  "questionTitle": "Phản hồi",
+  "questionMessage": "Chúng tôi muốn lắng nghe ý kiến phản hồi của bạn về trung tâm để cải thiện và nâng cao chất lượng dịch vụ, bạn vui lòng dành ít phút để điền vào ô phía dưới nhé:",
+  "answersSuccess": "Cảm ơn bạn dành thời gian cho chúng tôi!",
+  "requestUrl": "https://stag.devmind.edu.vn/api/login",
+}
+```

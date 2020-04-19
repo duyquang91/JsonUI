@@ -17,11 +17,9 @@ class APIClient {
     
     private let urlSession = URLSession(configuration: .default)
         
-    func request(forRoute route: APIRoutable) -> AnyPublisher<Data, URLError> {
+    func request(forRoute route: APIRoutable) -> URLSession.DataTaskPublisher {
         urlSession
             .dataTaskPublisher(for: route.urlRequest)
-            .map { $0.data }
-            .eraseToAnyPublisher()
     }
     
     func request<T: Codable>(forRoute route: APIRoutable, forType: T.Type) -> AnyPublisher<T, Error> {

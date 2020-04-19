@@ -21,9 +21,20 @@
 
 "history" = "History";
 "scanner" = "Scanner";
-"settings" = "Settings";
+"account" = "Account";
 
 "scan" = "Scan";
-"render_failed" = "Failed to render JsonUI due to incorrect format";
+"render_failed" = "Failed to show the result due to incorrect QR code format";
 
 "result" = "Result";
+"error" = "Error";
+"answer" = "Answer";
+"submit" = "Submit";
+"submit_failed" = "Couldn't connect to server. Please ensure that you're connected to an internet connection & try again!";
+
+"email" = "Email";
+"name" = "Name";
+"address" = "Address";
+"mobile" = "Mobile";
+
+"logout" = "Logout";
