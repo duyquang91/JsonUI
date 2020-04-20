@@ -15,7 +15,7 @@ struct ScannerView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            CodeScannerView(codeTypes: [.qr], simulatedData: QRCodeModel.mockJsonInput) { result in
+            CodeScannerView(codeTypes: [.qr], simulatedData: QRCodeModel.mockJsonSingleChoice) { result in
                 if let qr = try? result.get() {
                     self.qrCode = qr
                 }

@@ -26,15 +26,19 @@ struct QRCodeModel: Codable {
 }
 
 extension QRCodeModel {
-
+    
     var isFormatValid: Bool {
         switch questionType {
         case .singleChoice:
-            return options != nil && answers?.count == 1 && answersFail != nil
-
+            if let options = options, let answers = answers, answersFail != nil {
+                return options.count > 0 && answers.count == 1
+            } else {
+                return false
+            }
+            
         case .multiChoice:
             return options != nil && answers?.count ?? 0 > 1 && answersFail != nil
-
+            
         case .input:
             return options == nil && answers == nil && answersFail == nil && requestUrl != nil
         }
@@ -52,24 +56,22 @@ extension QRCodeModel {
         answersFail = model.answersFail
         requestUrl = model.requestUrl
     }
-
+    
     static var mockJsonSingleChoice: String {
         """
         {
-          "questionId": "abc1234xyz",
-          "questionType": "singleChoice",
-          "questionTitle": "Lịch sử",
-          "questionMessage": "Đâu là tên gọi đầu tiên của nước Việt Nam?",
-          "options": [
-            "Xích Quỷ",
-            "Văn Lang",
-            "Âu Lạc",
-            "Nam Việt",
-            "Bộ Giao Chỉ"],
-          "answers": ["Âu Lạc"],
-          "answersSuccess": "Chúc mừng bạn đã trả lời đúng",
-          "answersFail": "Bạn đã trả lời sai, vui lòng thử lại nhé",
-          "requestUrl": "https://stag.devmind.edu.vn/api/login",
+        "questionId": "abc1234xyz",
+        "questionType": "singleChoice",
+        "questionTitle": "Lịch sử",
+        "questionMessage": "Nhà đầu tư nào đã bỏ công sức, mồ hôi nước mắt nhất vào trung tâm Zent?",
+        "options": [
+        "Thương",
+        "Minh",
+        "Hiệp"],
+        "answers": ["Thương"],
+        "answersSuccess": "Không nó thì là ai nữa hả bạn?",
+        "answersFail": "Bạn đã trả lời sai, bạn đéo biết con cặc gì về chúng tôi!",
+        "requestUrl": "https://stag.devmind.edu.vn/api/login"
         }
         """
     }
@@ -77,20 +79,20 @@ extension QRCodeModel {
     static var mockJsonMultiChoice: String {
         """
         {
-          "questionId": "abc1234xyz",
-          "questionType": "multiChoice",
-          "questionTitle": "Lịch sử",
-          "questionMessage": "1 cộng với 1 bằng bao nhiêu?",
-          "options": [
-            "2",
-            "3",
-            "Bốn",
-            "Hai",
-            "Mười"],
-          "answers": ["2", "Hai"],
-          "answersSuccess": "Chúc mừng bạn đã trả lời đúng",
-          "answersFail": "Bạn đã trả lời sai, vui lòng thử lại nhé",
-          "requestUrl": "https://stag.devmind.edu.vn/api/login",
+        "questionId": "abc1234xyz",
+        "questionType": "multiChoice",
+        "questionTitle": "Tình anh em",
+        "questionMessage": "Đâu là những người anh em chí cốt, vào sinh ra tử cùng với Vũ Văn Thương gầy dựng nên trung tâm Zent?",
+        "options": [
+        "Hiệp",
+        "Quang",
+        "Quỳnh",
+        "Minh",
+        "Bách"],
+        "answers": ["Hiệp", "Minh"],
+        "answersSuccess": "Bạn hiểu Thương vl!",
+        "answersFail": "Bạn đéo hiểu con cặc gì về Thương cả, chán vkl!",
+        "requestUrl": "https://stag.devmind.edu.vn/api/login"
         }
         """
     }
@@ -98,12 +100,12 @@ extension QRCodeModel {
     static var mockJsonInput: String {
         """
         {
-          "questionId": "abc1234xyz",
-          "questionType": "input",
-          "questionTitle": "Phản hồi",
-          "questionMessage": "Chúng tôi muốn lắng nghe ý kiến phản hồi của bạn về trung tâm để cải thiện và nâng cao chất lượng dịch vụ, bạn vui lòng dành ít phút để điền vào ô phía dưới nhé:",
-          "answersSuccess": "Cảm ơn bạn dành thời gian cho chúng tôi!",
-          "requestUrl": "https://stag.devmind.edu.vn/api/login",
+        "questionId": "abc1234xyz",
+        "questionType": "input",
+        "questionTitle": "Phản hồi",
+        "questionMessage": "Chúng tôi muốn lắng nghe ý kiến phản hồi của bạn về trung tâm để cải thiện và nâng cao chất lượng dịch vụ, bạn vui lòng dành ít phút để điền vào ô phía dưới nhé:",
+        "answersSuccess": "Cảm ơn bạn dành thời gian cho chúng tôi!",
+        "requestUrl": "https://stag.devmind.edu.vn/api/login"
         }
         """
     }

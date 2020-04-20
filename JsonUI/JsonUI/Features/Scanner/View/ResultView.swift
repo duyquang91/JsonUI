@@ -12,14 +12,16 @@ import Combine
 struct ResultView: View {
     
     @ObservedObject private var viewModel: ScannerViewModel
+    @ObservedObject private var answerViewModel: SelectedAnswerViewModel
     
-    let qrCode: String
     private let model: QRCodeModel!
     
     init(qrCode: String) {
-        self.qrCode = qrCode
+        let answerViewModel = SelectedAnswerViewModel(qrModel: try? QRCodeModel(jsonString: qrCode))
         self.model = try? QRCodeModel(jsonString: qrCode)
-        self.viewModel = ScannerViewModel(qrModel: model)
+        self.answerViewModel = answerViewModel
+        self.viewModel = ScannerViewModel(qrModel: model, answerViewModel: answerViewModel)
+        
     }
     
     private var navTitle: String {
@@ -34,7 +36,7 @@ struct ResultView: View {
         HUDView(isShowing: $viewModel.isLoading) {
             NavigationView {
                 ScrollView(.vertical, showsIndicators: true) {
-                    VStack.init(alignment: .leading, spacing: 8) {
+                    VStack.init(alignment: .leading, spacing: 16) {
                         if self.model == nil || !self.model.isFormatValid {
                             Text("render_failed")
                         } else {
@@ -45,7 +47,7 @@ struct ResultView: View {
                                 TextField("answer", text: self.$viewModel.inputAnswer)
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
                             } else {
-                                
+                                SelectedAnswersView(qrModel: self.model, viewModel: self.answerViewModel)
                             }
                             
                             Button(action: {
@@ -64,14 +66,11 @@ struct ResultView: View {
                         }
                     }
                     .padding()
-                    .alert(isPresented: self.$viewModel.isSubmitSuccess) {
-                        Alert(title: Text(self.model.answersSuccess))
+                    .alert(isPresented: self.$viewModel.needShowAlert) {
+                        Alert(title: Text(self.viewModel.isSubmitFailed ? "submit_failed".locatized : self.viewModel.isCorrectAnswer ? self.model.answersSuccess : self.model.answersFail!))
                     }
                 }
                 .navigationBarTitle(self.navTitle)
-                .alert(isPresented: self.$viewModel.isSubmitFailed) {
-                    Alert(title: Text("submit_failed"))
-                }
             }
         }
     }
@@ -80,10 +79,10 @@ struct ResultView: View {
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ResultView(qrCode: QRCodeModel.mockJsonInput)
+            ResultView(qrCode: QRCodeModel.mockJsonSingleChoice)
                 .environment(\.locale, .init(identifier: "vi"))
             
-            ResultView(qrCode: QRCodeModel.mockJsonInput)
+            ResultView(qrCode: QRCodeModel.mockJsonMultiChoice)
                 .environment(\.colorScheme, .dark)
         }
     }

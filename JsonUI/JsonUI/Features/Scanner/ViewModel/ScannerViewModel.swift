@@ -19,15 +19,32 @@ class ScannerViewModel: ObservableObject {
     // Outputs
     @Published var isReadySubmit: Bool = false
     @Published var isLoading: Bool = false
+    @Published var needShowAlert: Bool = false
     @Published var isSubmitSuccess: Bool = false
     @Published var isSubmitFailed: Bool = false
+    var isCorrectAnswer: Bool {
+        switch qrModel?.questionType {
+        case .input:
+            return true
+        case .singleChoice, .multiChoice:
+            return Set(answers) == Set(qrModel?.answers ?? [])
+        case .none:
+            return false
+        }
+    }
     
     // Privates
-    private let qrModel: QRCodeModel!
+    private let qrModel: QRCodeModel?
     private var disposeStore = Set<AnyCancellable>()
     
-    init(qrModel: QRCodeModel?) {
+    
+    init(qrModel: QRCodeModel?, answerViewModel: SelectedAnswerViewModel) {
         self.qrModel = qrModel
+        
+        answerViewModel
+            .$result
+            .assign(to: \.answers, on: self)
+            .store(in: &disposeStore)
         
         $answers
             .map { $0.count > 0 }
@@ -35,11 +52,17 @@ class ScannerViewModel: ObservableObject {
             .assign(to: \.isReadySubmit, on: self)
             .store(in: &disposeStore)
         
+        $isSubmitSuccess
+            .merge(with: $isSubmitFailed)
+            .filter { $0 }
+            .assign(to: \.needShowAlert, on: self)
+            .store(in: &disposeStore)
+        
         if let qrModel = qrModel, let url = qrModel.requestUrl {
             $submitAction
                 .filter { $0 != nil }
                 .map { _ in APIClient.default
-                    .request(forRoute: self.getSubmitRoute(fromQrModel: qrModel, url: url)).print()
+                    .request(forRoute: self.getSubmitRoute(fromQrModel: qrModel, url: url))
                     .receive(on: DispatchQueue.main)
                     .handleEvents(receiveSubscription: { [weak self] _ in
                         self?.isLoading = true
