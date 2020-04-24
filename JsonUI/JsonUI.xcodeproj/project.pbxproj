@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC059A2A245324B800A160EB /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC059A29245324B800A160EB /* AppConfig.swift */; };
 		DC0A59DC244DE10500930AF7 /* SelectedAnswersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0A59DB244DE10500930AF7 /* SelectedAnswersView.swift */; };
 		DC0DC7F2244C3407004A7167 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0DC7F1244C3407004A7167 /* ScannerViewModel.swift */; };
 		DC0DC7F4244C3909004A7167 /* SubmitAnswerRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0DC7F3244C3909004A7167 /* SubmitAnswerRoute.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC059A29245324B800A160EB /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		DC0A59DB244DE10500930AF7 /* SelectedAnswersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAnswersView.swift; sourceTree = "<group>"; };
 		DC0DC7F1244C3407004A7167 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		DC0DC7F3244C3909004A7167 /* SubmitAnswerRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitAnswerRoute.swift; sourceTree = "<group>"; };
@@ -84,7 +86,7 @@
 		DCCACECD244750F200065EEF /* Notification+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extensions.swift"; sourceTree = "<group>"; };
 		DCD44F502440CEF9005E32E9 /* UIActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityView.swift; sourceTree = "<group>"; };
 		DCD44F522440CF5F005E32E9 /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
-		DCDDEE60243E1A7C003E2542 /* Zent Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zent Scanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCDDEE60243E1A7C003E2542 /* Zent LMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zent LMS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDDEE63243E1A7C003E2542 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCDDEE65243E1A7C003E2542 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DCDDEE67243E1A7C003E2542 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				DC8201F82442EB6A0022738C /* Extensions */,
 				DC8201F62442EB3F0022738C /* Views */,
 				DC8201F92442EBBB0022738C /* UserDefaultWrapper.swift */,
+				DC059A29245324B800A160EB /* AppConfig.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -282,7 +285,7 @@
 		DCDDEE61243E1A7C003E2542 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DCDDEE60243E1A7C003E2542 /* Zent Scanner.app */,
+				DCDDEE60243E1A7C003E2542 /* Zent LMS.app */,
 				DCDDEE76243E1A7D003E2542 /* JsonUITests.xctest */,
 			);
 			name = Products;
@@ -365,7 +368,7 @@
 				DC8201E22442E6160022738C /* IQKeyboardManagerSwift */,
 			);
 			productName = JsonUI;
-			productReference = DCDDEE60243E1A7C003E2542 /* Zent Scanner.app */;
+			productReference = DCDDEE60243E1A7C003E2542 /* Zent LMS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DCDDEE75243E1A7D003E2542 /* JsonUITests */ = {
@@ -474,6 +477,7 @@
 				DC4EC7C5244C26570070CE44 /* QRCodeModel.swift in Sources */,
 				DC3EC5B9244055C70068DEC9 /* LoginViewModel.swift in Sources */,
 				DCB824352448903100FA0D89 /* Font+Extensions.swift in Sources */,
+				DC059A2A245324B800A160EB /* AppConfig.swift in Sources */,
 				DCDDEE68243E1A7C003E2542 /* ContentView.swift in Sources */,
 				DCB824372448969B00FA0D89 /* String+Extensions.swift in Sources */,
 				DC3EC5C82440641C0068DEC9 /* LoginResponse.swift in Sources */,
@@ -650,7 +654,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"JsonUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 8C98S3WY53;
 				ENABLE_PREVIEWS = YES;
@@ -662,7 +666,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duyquang.jsonui;
-				PRODUCT_NAME = "Zent Scanner";
+				PRODUCT_NAME = "Zent LMS";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -673,7 +677,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"JsonUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 8C98S3WY53;
 				ENABLE_PREVIEWS = YES;
@@ -685,7 +689,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duyquang.jsonui;
-				PRODUCT_NAME = "Zent Scanner";
+				PRODUCT_NAME = "Zent LMS";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -28,8 +28,6 @@ class LoginViewModel: ObservableObject {
     @Published var isLoginButtonEnable = false
     @Published var errorText = ""
     @Published var isLoading = false
-    @UserDefaultWrapper(key: "user_info", defaultValue: nil)
-    var userInfo: UserInfo?
     
     private var disposeStore = Set<AnyCancellable>()
     
@@ -58,7 +56,10 @@ class LoginViewModel: ObservableObject {
             .switchToLatest()
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] loginResponse in
-                self?.userInfo = loginResponse.data?.userInfo
+                if let userInfo = loginResponse.data?.userInfo {
+                    AppConfig.shared.userInfo = userInfo
+
+                }
                 self?.errorText = loginResponse.status.code == 0 ? "" : loginResponse.status.message
             })
             .store(in: &disposeStore)

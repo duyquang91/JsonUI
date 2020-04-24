@@ -23,7 +23,7 @@ struct ScannerView: View {
 
              }
         }.sheet(isPresented: $isShowResult) {
-            ResultView(qrCode: self.qrCode)
+            ResultView(qrCode: self.qrCode, showResultView: self.$isShowResult)
                 .onAppear() {
                     NotificationCenter.default.post(Notification.init(name: Notification.codeScannerStopScanning)) }
                 .onDisappear() {NotificationCenter.default.post(Notification.init(name: Notification.codeScannerResumeScanning)) }

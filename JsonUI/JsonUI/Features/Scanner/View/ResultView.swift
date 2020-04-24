@@ -11,17 +11,19 @@ import Combine
 
 struct ResultView: View {
     
+    @Binding var showResultView: Bool
+    
     @ObservedObject private var viewModel: ScannerViewModel
     @ObservedObject private var answerViewModel: SelectedAnswerViewModel
     
     private let model: QRCodeModel!
     
-    init(qrCode: String) {
+    init(qrCode: String, showResultView: Binding<Bool>) {
         let answerViewModel = SelectedAnswerViewModel(qrModel: try? QRCodeModel(jsonString: qrCode))
         self.model = try? QRCodeModel(jsonString: qrCode)
         self.answerViewModel = answerViewModel
         self.viewModel = ScannerViewModel(qrModel: model, answerViewModel: answerViewModel)
-        
+        self._showResultView = showResultView
     }
     
     private var navTitle: String {
@@ -67,7 +69,11 @@ struct ResultView: View {
                     }
                     .padding()
                     .alert(isPresented: self.$viewModel.needShowAlert) {
-                        Alert(title: Text(self.viewModel.isSubmitFailed ? "submit_failed".locatized : self.viewModel.isCorrectAnswer ? self.model.answersSuccess : self.model.answersFail!))
+                        Alert(title: Text(self.viewModel.isSubmitFailed ? "submit_failed".locatized : self.viewModel.isCorrectAnswer ? self.model.answersSuccess : self.model.answersFail!), dismissButton: Alert.Button.default(Text("dismiss")) {
+                            if self.viewModel.isSubmitSuccess {
+                                self.showResultView = false
+                            }
+                        })
                     }
                 }
                 .navigationBarTitle(self.navTitle)
@@ -79,10 +85,10 @@ struct ResultView: View {
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ResultView(qrCode: QRCodeModel.mockJsonSingleChoice)
+            ResultView(qrCode: QRCodeModel.mockJsonSingleChoice, showResultView: Binding<Bool>.constant(true))
                 .environment(\.locale, .init(identifier: "vi"))
             
-            ResultView(qrCode: QRCodeModel.mockJsonMultiChoice)
+            ResultView(qrCode: QRCodeModel.mockJsonMultiChoice, showResultView: Binding<Bool>.constant(true))
                 .environment(\.colorScheme, .dark)
         }
     }

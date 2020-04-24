@@ -26,6 +26,5 @@ struct SubmitAnswerRoute: APIRoutable {
          "answer": answer]
     }
     
-    @UserDefaultWrapper(key: "user_info", defaultValue: nil)
-    private var userInfo: UserInfo?
+    private let userInfo = AppConfig.shared.userInfo
 }
