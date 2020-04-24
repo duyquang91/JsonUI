@@ -18,6 +18,7 @@ struct QRCodeModel: Codable {
     let questionType: QuestionType
     let questionTitle: String?
     let questionMessage: String
+    let imageUrl: String?
     let options: [String]?
     let answers: [String]?
     let answersSuccess: String
@@ -44,12 +45,18 @@ extension QRCodeModel {
         }
     }
     
+    var imageURL: URL? {
+        guard let imageUrlString = imageUrl, let url = URL(string: imageUrlString) else { return nil }
+        return url
+    }
+    
     init(jsonString: String) throws {
         let model = try JSONDecoder().decode(QRCodeModel.self, from: jsonString.data(using: .utf8) ?? Data())
         questionId = model.questionId
         questionType = model.questionType
         questionTitle = model.questionTitle
         questionMessage = model.questionMessage
+        imageUrl = model.imageUrl
         options = model.options
         answers = model.answers
         answersSuccess = model.answersSuccess
@@ -104,6 +111,7 @@ extension QRCodeModel {
         "questionType": "input",
         "questionTitle": "Phản hồi",
         "questionMessage": "Chúng tôi muốn lắng nghe ý kiến phản hồi của bạn về trung tâm để cải thiện và nâng cao chất lượng dịch vụ, bạn vui lòng dành ít phút để điền vào ô phía dưới nhé:",
+        "imageUrl": "https://larryferlazzo.edublogs.org/files/2020/03/feedback_1583238216.png",
         "answersSuccess": "Cảm ơn bạn dành thời gian cho chúng tôi!",
         "requestUrl": "https://stag.devmind.edu.vn/api/login"
         }

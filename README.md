@@ -21,16 +21,11 @@ Mã QR code trên được tạo ra bởi đoạn json sau:
   "questionType": "singleChoice",
   "questionTitle": "Lịch sử",
   "questionMessage": "Đâu là tên gọi đầu tiên của nước Việt Nam?",
-  "options": [
-    "Xích Quỷ",
-    "Văn Lang",
-    "Âu Lạc",
-    "Nam Việt",
-    "Bộ Giao Chỉ"],
+  "options": ["Xích Quỷ", "Văn Lang", "Âu Lạc", "Nam Việt", "Bộ Giao Chỉ"],
   "answers": ["Âu Lạc"],
   "answersSuccess": "Chúc mừng bạn đã trả lời đúng",
   "answersFail": "Bạn đã trả lời sai, vui lòng thử lại nhé",
-  "requestUrl": "https://staging.zent.com",
+  "requestUrl": "https://staging.zent.com"
 }
 ```
 
@@ -41,6 +36,7 @@ Mã QR code trên được tạo ra bởi đoạn json sau:
 | questionType | Kiểu câu hỏi, chỉ được chọn 1 trong các giá trị sau: <br> `singleChoice`: Câu hỏi trắc nghiệm chỉ có 1 đáp án đúng <br> `multiChoice`: Câu hỏi trắc nghiệm có nhiều đáp án <br> `input`: Câu hỏi tự luận | bắt buộc |
 | questionTitle | Tiêu đề ngắn ngọn của câu hỏi, thường là chủ đề của câu hỏi | tuỳ chọn |
 | questionMessage | Nội dung câu hỏi | bắt buộc |
+| imageUrl | Đường dẫn tới hình ảnh sẽ hiển thị ngay dưới nội dung câu hỏi | tuỳ chọn |
 | options | Mảng các câu trả lời. Nếu là câu hỏi tự luận, vui lòng bỏ trống trường này | tuỳ chọn |
 | answers | Mảng các câu trả lời đúng. <br> Mảng có 1 giá trị nếu là câu hỏi trắc nghiệm chỉ có 1 đáp án đúng. <br> Mảng có nhiều giá trị nếu là câu hỏi trắc nghiệm có nhiều đáp án đúng. <br> Nếu là câu hỏi tự luận, vui lòng bỏ qua trường này. | tuỳ chọn |
 | answersSuccess | Nội dung sẽ xuất hiện khi học viên trả lời đúng câu hỏi trắc nghiệm hoặc hoàn thành câu hỏi tự luận | bắt buộc |
@@ -84,12 +80,7 @@ Dưới đây là 1 số mẫu QR code dùng để thử nghiệm
   "questionType": "singleChoice",
   "questionTitle": "Lịch sử",
   "questionMessage": "Đâu là tên gọi đầu tiên của nước Việt Nam?",
-  "options": [
-    "Xích Quỷ",
-    "Văn Lang",
-    "Âu Lạc",
-    "Nam Việt",
-    "Bộ Giao Chỉ"],
+  "options": ["Xích Quỷ", "Văn Lang", "Âu Lạc", "Nam Việt", "Bộ Giao Chỉ"],
   "answers": ["Âu Lạc"],
   "answersSuccess": "Chúc mừng bạn đã trả lời đúng",
   "answersFail": "Bạn đã trả lời sai, vui lòng thử lại nhé",
@@ -107,12 +98,7 @@ Dưới đây là 1 số mẫu QR code dùng để thử nghiệm
   "questionType": "multiChoice",
   "questionTitle": "Toán học",
   "questionMessage": "1 cộng với 1 bằng bao nhiêu?",
-  "options": [
-    "2",
-    "3",
-    "Bốn",
-    "Hai",
-    "Mười"],
+  "options": ["2", "3", "Bốn", "Hai", "Mười"],
   "answers": ["2", "Hai"],
   "answersSuccess": "Chúc mừng bạn đã trả lời đúng",
   "answersFail": "Bạn đã trả lời sai, vui lòng thử lại nhé",
@@ -126,11 +112,12 @@ Dưới đây là 1 số mẫu QR code dùng để thử nghiệm
 
 ```json
 {
-  "questionId": "abc1234xyz",
-  "questionType": "input",
-  "questionTitle": "Phản hồi",
-  "questionMessage": "Chúng tôi muốn lắng nghe ý kiến phản hồi của bạn về trung tâm để cải thiện và nâng cao chất lượng dịch vụ, bạn vui lòng dành ít phút để điền vào ô phía dưới nhé:",
-  "answersSuccess": "Cảm ơn bạn dành thời gian cho chúng tôi!",
-  "requestUrl": "https://stag.devmind.edu.vn/api/login",
+"questionId": "abc1234xyz",
+"questionType": "input",
+"questionTitle": "Phản hồi",
+"questionMessage": "Chúng tôi muốn lắng nghe ý kiến phản hồi của bạn về trung tâm để cải thiện và nâng cao chất lượng dịch vụ, bạn vui lòng dành ít phút để điền vào ô phía dưới nhé:",
+"imageUrl": "https://larryferlazzo.edublogs.org/files/2020/03/feedback_1583238216.png",
+"answersSuccess": "Cảm ơn bạn dành thời gian cho chúng tôi!",
+"requestUrl": "https://stag.devmind.edu.vn/api/login"
 }
 ```

@@ -45,6 +45,12 @@ struct ResultView: View {
                             Text(self.model.questionMessage)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .multilineTextAlignment(.leading)
+                            
+                            if self.model.imageURL != nil {
+                                Image(uiImage: UIImage(data: try! Data.init(contentsOf: self.model.imageURL!))!)
+                                    .resizable().scaledToFit()
+                            }
+                            
                             if self.model.questionType == .input {
                                 TextField("answer", text: self.$viewModel.inputAnswer)
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -85,7 +91,7 @@ struct ResultView: View {
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ResultView(qrCode: QRCodeModel.mockJsonSingleChoice, showResultView: Binding<Bool>.constant(true))
+            ResultView(qrCode: QRCodeModel.mockJsonInput, showResultView: Binding<Bool>.constant(true))
                 .environment(\.locale, .init(identifier: "vi"))
             
             ResultView(qrCode: QRCodeModel.mockJsonMultiChoice, showResultView: Binding<Bool>.constant(true))
