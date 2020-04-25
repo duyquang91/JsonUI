@@ -41,7 +41,16 @@ Sau khi gửi request, server sẽ trả về câu hỏi chi tiết như sau:
         "message": "success"
     },
     "data": {
-        "qr_json": "{\"questionId\": \"16\",\n\"questionType\": \"singleChoice\",\n\"questionTitle\": \"\",\n\"questionMessage\": \"Lập trình laravel cần gì ?\",\n\"options\": [\"Tiền\",\"Xe\",\"Máy tính\",\"Người yêu\"],\n\"answers\": [\"Máy tính\"],\n\"answersSuccess\": \"Chúc mừng bạn đã trả lời đúng\",\n\"answersFail\": \"Bạn đã trả lời sai, vui lòng thử lại nhé\",\n\"requestUrl\": \"http://stag.devmind.edu.vn/api/login\"\n}"
+        "metaData": "base64String",
+        "qr_json": {
+            "questionId": "abc1234xyz",
+            "questionType": "input",
+            "questionTitle": "Phản hồi",
+            "questionMessage": "Chúng tôi muốn lắng nghe ý kiến phản hồi của bạn về trung tâm để cải thiện và nâng cao chất lượng dịch vụ, bạn vui lòng dành ít phút để điền vào ô phía dưới nhé:",
+            "imageUrl": "https://larryferlazzo.edublogs.org/files/2020/03/feedback_1583238216.png",
+            "answersSuccess": "Cảm ơn bạn dành thời gian cho chúng tôi!",
+            "requestUrl": "https://stag.devmind.edu.vn/api/login"
+        }
     }
 }
 ```
