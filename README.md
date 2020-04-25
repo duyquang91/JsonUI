@@ -23,7 +23,7 @@ Mã QR code trên được tạo ra bởi đoạn json sau:
 ```
 Ứng dụng sau đó sẽ gửi 1 request để lấy thông tin câu hỏi chi tiết:
 
-```
+```bash
 $ curl --location --request GET 'https://stag.devmind.edu.vn/api/questions/get/16' \
 --header 'Content-Type: application/json' \
 ```
@@ -34,7 +34,7 @@ $ curl --location --request GET 'https://stag.devmind.edu.vn/api/questions/get/1
 
 Sau khi gửi request, server sẽ trả về câu hỏi chi tiết như sau:
 
-```json
+```bash
 {
     "status": {
         "code": 0,
