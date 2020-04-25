@@ -5,7 +5,7 @@
 Zent Scanner là ứng dụng di động hỗ trợ quá trình học tập tại trung tâm Zent. Sử dụng Zent Scanner để quét mã QR code và trả lời câu hỏi, câu hỏi có thể ở dạng trắc nghiệm hoặc tự luận.  
 Ví dụ chúng ta có mã QR code sau:
 
-![](srcs/qrcode2.png)
+![](srcs/qrcode.png)
 
 Sau khi sử dụng ứng dụng Zent Scanner trên iOS hoặc Android để quét mã QR code trên, câu hỏi sẽ xuất hiện và học viên sẽ lựa chọn câu trả lời.
 
@@ -17,18 +17,36 @@ Mã QR code trên được tạo ra bởi đoạn json sau:
 
 ```json
 {
-  "questionId": "abc1234xyz",
-  "questionType": "singleChoice",
-  "questionTitle": "Lịch sử",
-  "questionMessage": "Đâu là tên gọi đầu tiên của nước Việt Nam?",
-  "options": ["Xích Quỷ", "Văn Lang", "Âu Lạc", "Nam Việt", "Bộ Giao Chỉ"],
-  "answers": ["Âu Lạc"],
-  "answersSuccess": "Chúc mừng bạn đã trả lời đúng",
-  "answersFail": "Bạn đã trả lời sai, vui lòng thử lại nhé",
-  "requestUrl": "https://staging.zent.com"
+  "questionId": "16",
+  "metaData": "base64String"
+}
+```
+Ứng dụng sau đó sẽ gửi 1 request để lấy thông tin câu hỏi chi tiết:
+
+```
+$ curl --location --request GET 'https://stag.devmind.edu.vn/api/questions/get/16' \
+--header 'Content-Type: application/json' \
+```
+
+> TRONG ĐÓ:
+> ***https://stag.devmind.edu.vn/api/questions/get/{{questionId}}*** là địa chỉ để lấy thông tin câu hỏi chi tiết, địa chỉ này được hardcode giá trị mặc định trong App, khi App khởi động sẽ lấy giá trị mới nhất từ Remote Config.
+> ***metaData***  sẽ được dùng để gửi lên server sau này, lúc lấy thông tin câu hỏi không sử dụng đến giá trị này.
+
+Sau khi gửi request, server sẽ trả về câu hỏi chi tiết như sau:
+
+```json
+{
+    "status": {
+        "code": 0,
+        "message": "success"
+    },
+    "data": {
+        "qr_json": "{\"questionId\": \"16\",\n\"questionType\": \"singleChoice\",\n\"questionTitle\": \"\",\n\"questionMessage\": \"Lập trình laravel cần gì ?\",\n\"options\": [\"Tiền\",\"Xe\",\"Máy tính\",\"Người yêu\"],\n\"answers\": [\"Máy tính\"],\n\"answersSuccess\": \"Chúc mừng bạn đã trả lời đúng\",\n\"answersFail\": \"Bạn đã trả lời sai, vui lòng thử lại nhé\",\n\"requestUrl\": \"http://stag.devmind.edu.vn/api/login\"\n}"
+    }
 }
 ```
 
+Phía App sẽ render câu hỏi dựa trên giá trị json của key `qr_json`:
 
 | từ khoá | mô tả | yêu cầu |
 | ----- | ----- | ----- |
@@ -45,14 +63,18 @@ Mã QR code trên được tạo ra bởi đoạn json sau:
 
 ## Gửi kết quả lên server
 
-Sau khi học viên trả lời câu hỏi, nếu giá trị `requestUrl` được cung cấp, ứng dụng sẽ gửi 1 request lên server với nội dung:  
-* url: `requestUrl`
-* method: POST
-* body:
-```json
-"userEmail": $userEmail,
-"questionId": $questionId,
-"answers": ["answer here", "and here"]
+Sau khi học viên trả lời câu hỏi, nếu giá trị `requestUrl` được cung cấp, ứng dụng sẽ gửi 1 request lên server:
+
+```bash
+$ curl --location --request POST {{requestUrl}} \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "userEmail": "user@email.com",
+  "questionId": "16",
+  "answers": ["answer here", "and here"],
+  "isCorrectAnswer": 1,
+  "metaData": "base64String"
+}'
 ```
 
 > Trong đó:
@@ -62,62 +84,10 @@ Sau khi học viên trả lời câu hỏi, nếu giá trị `requestUrl` đư�
 > Trường hợp câu hỏi trắc nghiệm chỉ có 1 đáp án đúng, mảng này chỉ có 1 giá trị.
 > Trường hợp câu hỏi trắc nghiệm có nhiều đáp án đúng, mảng này có nhiều giá trị.
 > Trường hợp câu hỏi tự luận, mảng này chỉ có 1 giá trị.
+> `isCorrectAnswer` Nếu câu hỏi tự luận sẽ không có trường này.
+> `isCorrectAnswer` Bằng 1 nếu học viên trả lời đúng và bằng 0 nếu trả lời sai.
+> `metaData`: Được lấy lúc quét mã QR code.
 
 Sau khi phía server xử lý xong phải trả về HTTP Code như sau:
 * 200: Đã xử lý câu trả lời thành công, mobile app sẽ hiện nội dung của `answersSuccess` lấy từ QR code.
 * khác 200: mobile app sẽ hiện thông báo lỗi.
-
-##  Mẫu QR code
-Dưới đây là 1 số mẫu QR code dùng để thử nghiệm
-
-#### Câu hỏi trắc nghiệm chỉ có 1 đáp án đúng
-
-![](srcs/qrcode0.png)
-
-```json
-{
-  "questionId": "abc1234xyz",
-  "questionType": "singleChoice",
-  "questionTitle": "Lịch sử",
-  "questionMessage": "Đâu là tên gọi đầu tiên của nước Việt Nam?",
-  "options": ["Xích Quỷ", "Văn Lang", "Âu Lạc", "Nam Việt", "Bộ Giao Chỉ"],
-  "answers": ["Âu Lạc"],
-  "answersSuccess": "Chúc mừng bạn đã trả lời đúng",
-  "answersFail": "Bạn đã trả lời sai, vui lòng thử lại nhé",
-  "requestUrl": "https://stag.devmind.edu.vn/api/login",
-}
-```
-
-#### Câu hỏi trắc nghiệm có nhiều đáp án đúng
-
-![](srcs/qrcode1.png)
-
-```json
-{
-  "questionId": "abc1234xyz",
-  "questionType": "multiChoice",
-  "questionTitle": "Toán học",
-  "questionMessage": "1 cộng với 1 bằng bao nhiêu?",
-  "options": ["2", "3", "Bốn", "Hai", "Mười"],
-  "answers": ["2", "Hai"],
-  "answersSuccess": "Chúc mừng bạn đã trả lời đúng",
-  "answersFail": "Bạn đã trả lời sai, vui lòng thử lại nhé",
-  "requestUrl": "https://stag.devmind.edu.vn/api/login",
-}
-```
-
-#### Câu hỏi tự luận
-
-![](srcs/qrcode2.png)
-
-```json
-{
-"questionId": "abc1234xyz",
-"questionType": "input",
-"questionTitle": "Phản hồi",
-"questionMessage": "Chúng tôi muốn lắng nghe ý kiến phản hồi của bạn về trung tâm để cải thiện và nâng cao chất lượng dịch vụ, bạn vui lòng dành ít phút để điền vào ô phía dưới nhé:",
-"imageUrl": "https://larryferlazzo.edublogs.org/files/2020/03/feedback_1583238216.png",
-"answersSuccess": "Cảm ơn bạn dành thời gian cho chúng tôi!",
-"requestUrl": "https://stag.devmind.edu.vn/api/login"
-}
-```
