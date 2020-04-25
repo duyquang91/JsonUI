@@ -41,7 +41,6 @@ Sau khi gửi request, server sẽ trả về câu hỏi chi tiết như sau:
         "message": "success"
     },
     "data": {
-        "metaData": "base64String",
         "qr_json": {
             "questionId": "abc1234xyz",
             "questionType": "input",
