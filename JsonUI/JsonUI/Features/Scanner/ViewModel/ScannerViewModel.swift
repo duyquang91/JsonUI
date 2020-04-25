@@ -17,30 +17,56 @@ class ScannerViewModel: ObservableObject {
     @Published var submitAction: Void? = nil
     
     // Outputs
+    @Published var statusString = ""
+    @Published var quesionModel: QuestionModel! = nil
     @Published var isReadySubmit: Bool = false
     @Published var isLoading: Bool = false
     @Published var needShowAlert: Bool = false
     @Published var isSubmitSuccess: Bool = false
     @Published var isSubmitFailed: Bool = false
+    
     var isCorrectAnswer: Bool {
-        switch qrModel?.questionType {
+        switch quesionModel?.questionType {
         case .input:
             return true
         case .singleChoice, .multiChoice:
-            return Set(answers) == Set(qrModel?.answers ?? [])
+            return Set(answers) == Set(quesionModel?.answers ?? [])
         case .none:
             return false
         }
     }
     
     // Privates
-    private let qrModel: QRCodeModel?
+    private var qrModel: QRModel!
+    private let answerViewModel: SelectedAnswerViewModel
     private var disposeStore = Set<AnyCancellable>()
     
     
-    init(qrModel: QRCodeModel?, answerViewModel: SelectedAnswerViewModel) {
-        self.qrModel = qrModel
-        
+    init(qrString: String, answerViewModel: SelectedAnswerViewModel) {
+        self.answerViewModel = answerViewModel
+        if let data = qrString.data(using: .utf8), let qrModel = try? JSONDecoder().decode(QRModel.self, from: data) {
+            self.qrModel = qrModel
+            self.isLoading = true
+            APIClient.default
+                .request(forRoute: GetQuestionRoute(questionId: qrModel.questionId), forType: QuestionModel.self)
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { [weak self] completion in
+                    self?.isLoading = false
+                    switch completion {
+                    case .finished:
+                        break
+                        
+                    case .failure(let error):
+                        self?.statusString = error.localizedDescription
+                    } }) { [weak self] question in
+                        self?.quesionModel = question
+                        self?.answerViewModel.questionModel = question
+            }
+                .store(in: &disposeStore)
+        } else {
+            self.statusString = "render_failed".locatized
+        }
+
         answerViewModel
             .$result
             .assign(to: \.answers, on: self)
@@ -58,14 +84,13 @@ class ScannerViewModel: ObservableObject {
             .assign(to: \.needShowAlert, on: self)
             .store(in: &disposeStore)
         
-        if let qrModel = qrModel, let url = qrModel.requestUrl {
-            $submitAction
-                .filter { $0 != nil }
-                .map { _ in APIClient.default
-                    .request(forRoute: self.getSubmitRoute(fromQrModel: qrModel, url: url))
-                    .receive(on: DispatchQueue.main)
-                    .handleEvents(receiveSubscription: { [weak self] _ in
-                        self?.isLoading = true
+        $submitAction
+            .filter { $0 != nil && self.quesionModel?.requestUrl != nil }
+            .map { _ in APIClient.default
+                .request(forRoute: self.getSubmitRoute(fromQrModel: self.qrModel, questionModel: self.quesionModel))
+                .receive(on: DispatchQueue.main)
+                .handleEvents(receiveSubscription: { [weak self] _ in
+                    self?.isLoading = true
                     }, receiveOutput: { [weak self] dataTask in
                         if let urlResponse = dataTask.response as? HTTPURLResponse, urlResponse.statusCode == 200 {
                             self?.isSubmitSuccess = true
@@ -82,22 +107,20 @@ class ScannerViewModel: ObservableObject {
                         }
                     }, receiveCancel: { [weak self] in
                         self?.isLoading = false
-                    })
-                    .replaceError(with: (Data(), URLResponse())) }
-                .switchToLatest()
-                .sink(receiveValue: { _ in })
-                .store(in: &disposeStore)
-        } else {
-            $submitAction
-                .filter { $0 != nil }
-                .map { _ in true }
-                .assign(to: \.isSubmitSuccess, on: self)
-                .store(in: &disposeStore)
-        }
+                })
+                .replaceError(with: (Data(), URLResponse())) }
+            .switchToLatest()
+            .sink(receiveValue: { _ in })
+            .store(in: &disposeStore)
         
+        $submitAction
+            .filter { $0 != nil && self.quesionModel?.requestUrl == nil }
+            .map { _ in true }
+            .assign(to: \.isSubmitSuccess, on: self)
+            .store(in: &disposeStore)
     }
     
-    private func getSubmitRoute(fromQrModel qrModel: QRCodeModel, url: String) -> APIRoutable {
-        SubmitAnswerRoute(url: url, questionId: qrModel.questionId, answer: answers.isEmpty ? [inputAnswer] : answers)
+    private func getSubmitRoute(fromQrModel qrModel: QRModel, questionModel: QuestionModel) -> APIRoutable {
+        SubmitAnswerRoute(questionModel: quesionModel, qrModel: qrModel, answer: answers.isEmpty ? [inputAnswer] : answers)
     }
 }

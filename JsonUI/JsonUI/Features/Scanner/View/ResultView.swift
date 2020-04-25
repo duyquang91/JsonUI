@@ -16,21 +16,22 @@ struct ResultView: View {
     @ObservedObject private var viewModel: ScannerViewModel
     @ObservedObject private var answerViewModel: SelectedAnswerViewModel
     
-    private let model: QRCodeModel!
-    
+    private var model: QuestionModel! {
+        viewModel.quesionModel
+    }
+        
     init(qrCode: String, showResultView: Binding<Bool>) {
-        let answerViewModel = SelectedAnswerViewModel(qrModel: try? QRCodeModel(jsonString: qrCode))
-        self.model = try? QRCodeModel(jsonString: qrCode)
+        let answerViewModel = SelectedAnswerViewModel()
         self.answerViewModel = answerViewModel
-        self.viewModel = ScannerViewModel(qrModel: model, answerViewModel: answerViewModel)
+        self.viewModel = ScannerViewModel(qrString: qrCode, answerViewModel: answerViewModel)
         self._showResultView = showResultView
     }
     
     private var navTitle: String {
-        if let model = model, model.isFormatValid {
-            return model.questionTitle ?? "result".locatized
+        if let model = model {
+            return model.isFormatValid ? model.questionTitle ?? "result".locatized : "error".locatized
         } else {
-            return "error".locatized
+            return viewModel.isLoading ? "" : "error".locatized
         }
     }
     
@@ -39,7 +40,9 @@ struct ResultView: View {
             NavigationView {
                 ScrollView(.vertical, showsIndicators: true) {
                     VStack.init(alignment: .leading, spacing: 16) {
-                        if self.model == nil || !self.model.isFormatValid {
+                        if self.viewModel.quesionModel == nil {
+                            Text(self.viewModel.statusString)
+                        } else if !self.model.isFormatValid {
                             Text("render_failed")
                         } else {
                             Text(self.model.questionMessage)
@@ -91,10 +94,10 @@ struct ResultView: View {
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ResultView(qrCode: QRCodeModel.mockJsonInput, showResultView: Binding<Bool>.constant(true))
+            ResultView(qrCode: QuestionModel.mockJsonInput, showResultView: Binding<Bool>.constant(true))
                 .environment(\.locale, .init(identifier: "vi"))
             
-            ResultView(qrCode: QRCodeModel.mockJsonMultiChoice, showResultView: Binding<Bool>.constant(true))
+            ResultView(qrCode: QuestionModel.mockJsonSingleChoice, showResultView: Binding<Bool>.constant(true))
                 .environment(\.colorScheme, .dark)
         }
     }

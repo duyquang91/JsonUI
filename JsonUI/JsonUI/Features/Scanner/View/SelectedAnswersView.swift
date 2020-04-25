@@ -10,11 +10,11 @@ import SwiftUI
 
 struct SelectedAnswersView: View {
     
-    let qrModel: QRCodeModel!
+    let qrModel: QuestionModel!
     @ObservedObject private var viewModel: SelectedAnswerViewModel
     @State private var selectedIndex = 100
     
-    init(qrModel: QRCodeModel, viewModel: SelectedAnswerViewModel) {
+    init(qrModel: QuestionModel, viewModel: SelectedAnswerViewModel) {
         self.qrModel = qrModel
         self.viewModel = viewModel
     }
@@ -49,9 +49,10 @@ struct SelectedAnswersView: View {
 struct SelectedAnswersView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SelectedAnswersView(qrModel: try! QRCodeModel.init(jsonString: QRCodeModel.mockJsonSingleChoice), viewModel: SelectedAnswerViewModel(qrModel: try! QRCodeModel.init(jsonString: QRCodeModel.mockJsonSingleChoice)))
+            SelectedAnswersView(qrModel: try! QuestionModel.init(jsonString: QuestionModel.mockJsonInput), viewModel: SelectedAnswerViewModel())
             
-            SelectedAnswersView(qrModel: try! QRCodeModel.init(jsonString: QRCodeModel.mockJsonSingleChoice), viewModel: SelectedAnswerViewModel(qrModel: try! QRCodeModel.init(jsonString: QRCodeModel.mockJsonSingleChoice))).environment(\.colorScheme, .dark)
+            SelectedAnswersView(qrModel: try! QuestionModel.init(jsonString: QuestionModel.mockJsonInput), viewModel: SelectedAnswerViewModel())
+                .environment(\.colorScheme, .dark)
         }
         
     }

@@ -12,7 +12,7 @@ import SwiftUI
 
 class SelectedAnswerViewModel: ObservableObject {
     
-    private let qrModel: QRCodeModel?
+    var questionModel: QuestionModel?
     
     // Inputs
     @Published var selectedAnswer: String = ""
@@ -23,14 +23,12 @@ class SelectedAnswerViewModel: ObservableObject {
     // Private
     private var disposeStore = Set<AnyCancellable>()
     
-    init(qrModel: QRCodeModel?) {
-        self.qrModel = qrModel
-        
+    init() {
         $selectedAnswer
             .filter { !$0.isEmpty }
             .sink { [weak self] text in
                 guard let self = self else { return }
-                switch qrModel?.questionType {
+                switch self.questionModel?.questionType {
                 case .singleChoice:
                     self.result = [text]
                     

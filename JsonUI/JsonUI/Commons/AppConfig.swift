@@ -20,5 +20,8 @@ class AppConfig {
         }
     }
     
+    @UserDefaultWrapper(key: "get_question_url", defaultValue: "https://stag.devmind.edu.vn/api/questions/get")
+    var getQuestionUrl: String
+    
     private init() {}
 }

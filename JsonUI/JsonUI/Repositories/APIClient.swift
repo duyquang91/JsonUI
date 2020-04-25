@@ -36,7 +36,7 @@ class APIClient {
             }).eraseToAnyPublisher()
     }
     
-    func request<T: Codable>(forRoute route: APIRoutable, forType: T.Type) -> AnyPublisher<T, Error> {
+    func request<T: Decodable>(forRoute route: APIRoutable, forType: T.Type) -> AnyPublisher<T, Error> {
         URLSession.shared
             .dataTaskPublisher(for: route.urlRequest)
             .map { $0.data }

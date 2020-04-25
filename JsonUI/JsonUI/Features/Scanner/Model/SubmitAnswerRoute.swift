@@ -10,10 +10,14 @@ import Foundation
 
 struct SubmitAnswerRoute: APIRoutable {
     
-    var url: String
+    let questionModel: QuestionModel
     
-    let questionId: String
+    let qrModel: QRModel
     
+    var url: String {
+        questionModel.requestUrl!
+    }
+        
     let answer: [String]
     
     let headers: [String : String]? = ["Content-Type": "application/json"]
@@ -21,9 +25,17 @@ struct SubmitAnswerRoute: APIRoutable {
     let method = HTTPMethod.post
     
     var body: [String : Any]? {
-        ["questionId": questionId,
-         "userEmail": userInfo?.email ?? "",
-         "answer": answer]
+        var dict: [String: Any] = ["questionId": questionModel.questionId, "userEmail": userInfo?.email ?? "", "answer": answer]
+        
+        if let metaData = qrModel.metaData {
+            dict["metaData"] = metaData
+        }
+        
+        if let answers = questionModel.answers, questionModel.questionType != .input {
+            dict["isCorrectAnswer"] = Set(answer) == Set(answers) ? 1 : 0
+        }
+        
+        return dict
     }
     
     private let userInfo = AppConfig.shared.userInfo
