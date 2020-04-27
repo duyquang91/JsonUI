@@ -121,6 +121,6 @@ class ScannerViewModel: ObservableObject {
     }
     
     private func getSubmitRoute(fromQrModel qrModel: QRModel, questionModel: QuestionModel) -> APIRoutable {
-        SubmitAnswerRoute(questionModel: quesionModel, qrModel: qrModel, answer: answers.isEmpty ? [inputAnswer] : answers)
+        SubmitAnswerRoute(questionModel: quesionModel, qrModel: qrModel, answers: answers.isEmpty ? [inputAnswer] : answers)
     }
 }

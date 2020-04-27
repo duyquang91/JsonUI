@@ -18,21 +18,21 @@ struct SubmitAnswerRoute: APIRoutable {
         questionModel.requestUrl!
     }
         
-    let answer: [String]
+    let answers: [String]
     
     let headers: [String : String]? = ["Content-Type": "application/json"]
     
     let method = HTTPMethod.post
     
     var body: [String : Any]? {
-        var dict: [String: Any] = ["questionId": questionModel.questionId, "userEmail": userInfo?.email ?? "", "answer": answer]
+        var dict: [String: Any] = ["questionId": questionModel.questionId, "userEmail": userInfo?.email ?? "", "answers": answers]
         
         if let metaData = qrModel.metaData {
             dict["metaData"] = metaData
         }
         
         if let answers = questionModel.answers, questionModel.questionType != .input {
-            dict["isCorrectAnswer"] = Set(answer) == Set(answers) ? 1 : 0
+            dict["isCorrectAnswer"] = Set(self.answers) == Set(answers) ? 1 : 0
         }
         
         return dict
