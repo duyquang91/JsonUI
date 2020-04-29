@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 import AVFoundation
+import FirebaseRemoteConfig
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -56,6 +57,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        AppRemoteConfig.shared.fetchData()
+
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {

@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'JsonUI' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for JsonUI
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/RemoteConfig'
+  pod 'IQKeyboardManagerSwift'
+  pod 'lottie-ios'
+
+  target 'JsonUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

@@ -13,7 +13,7 @@ struct GetQuestionRoute: APIRoutable {
     let questionId: String
     
     var url: String {
-        AppConfig.shared.getQuestionUrl + "/\(questionId)"
+        AppRemoteConfig.shared.getQuestionUrl + "/\(questionId)"
     }
     
     var headers: [String : String]? {

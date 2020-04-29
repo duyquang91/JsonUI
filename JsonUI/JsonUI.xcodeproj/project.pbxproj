@@ -3,14 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5749C8861F9C0C318D56DCFB /* Pods_JsonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E46D859D24CE1C1A01D5F6 /* Pods_JsonUITests.framework */; };
+		91A0DD8CD1364D1CB7AF198F /* Pods_JsonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBEEFA599871ABB74660C4E3 /* Pods_JsonUI.framework */; };
 		DC059A2A245324B800A160EB /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC059A29245324B800A160EB /* AppConfig.swift */; };
 		DC0A59DC244DE10500930AF7 /* SelectedAnswersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0A59DB244DE10500930AF7 /* SelectedAnswersView.swift */; };
 		DC0DC7F2244C3407004A7167 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0DC7F1244C3407004A7167 /* ScannerViewModel.swift */; };
 		DC0DC7F4244C3909004A7167 /* SubmitAnswerRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0DC7F3244C3909004A7167 /* SubmitAnswerRoute.swift */; };
+		DC1E50382459D540008EE023 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC1E50372459D540008EE023 /* GoogleService-Info.plist */; };
+		DC1E503B2459D726008EE023 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1E503A2459D726008EE023 /* RemoteConfig.swift */; };
 		DC39F0E5244DED70000E4DD9 /* SelectedAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39F0E4244DED70000E4DD9 /* SelectedAnswerViewModel.swift */; };
 		DC3EC5B7244055B70068DEC9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3EC5B6244055B70068DEC9 /* LoginView.swift */; };
 		DC3EC5B9244055C70068DEC9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3EC5B8244055C70068DEC9 /* LoginViewModel.swift */; };
@@ -20,7 +24,6 @@
 		DC3EC5C6244063FE0068DEC9 /* LoginRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3EC5C5244063FE0068DEC9 /* LoginRoute.swift */; };
 		DC3EC5C82440641C0068DEC9 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3EC5C72440641C0068DEC9 /* LoginResponse.swift */; };
 		DC4EC7C5244C26570070CE44 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4EC7C4244C26570070CE44 /* QuestionModel.swift */; };
-		DC8201E32442E6160022738C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC8201E22442E6160022738C /* IQKeyboardManagerSwift */; };
 		DC8201E72442E6DF0022738C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201E62442E6DF0022738C /* MainView.swift */; };
 		DC8201F32442E9690022738C /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201F22442E9690022738C /* ScannerView.swift */; };
 		DC8201F52442EA510022738C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8201F42442EA510022738C /* SettingsView.swift */; };
@@ -31,7 +34,6 @@
 		DCB824352448903100FA0D89 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB824342448903100FA0D89 /* Font+Extensions.swift */; };
 		DCB824372448969B00FA0D89 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB824362448969B00FA0D89 /* String+Extensions.swift */; };
 		DCC0F214243E299F00B95A61 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC0F213243E299F00B95A61 /* WelcomeViewModel.swift */; };
-		DCC0F217243E376C00B95A61 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DCC0F216243E376C00B95A61 /* Lottie */; };
 		DCC0F21A243E378F00B95A61 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC0F219243E378F00B95A61 /* LottieView.swift */; };
 		DCC0F21D243E383100B95A61 /* qr_scanner.json in Resources */ = {isa = PBXBuildFile; fileRef = DCC0F21C243E383100B95A61 /* qr_scanner.json */; };
 		DCCACECC24474F4A00065EEF /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCACECB24474F4A00065EEF /* CodeScannerView.swift */; };
@@ -61,10 +63,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B1E7EB22880975148C6B0D9 /* Pods-JsonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsonUITests.release.xcconfig"; path = "Target Support Files/Pods-JsonUITests/Pods-JsonUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3747159615DB3266A0B8ED7F /* Pods-JsonUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsonUITests.debug.xcconfig"; path = "Target Support Files/Pods-JsonUITests/Pods-JsonUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4495F60AE357BBA61614D7E9 /* Pods-JsonUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsonUI.debug.xcconfig"; path = "Target Support Files/Pods-JsonUI/Pods-JsonUI.debug.xcconfig"; sourceTree = "<group>"; };
+		63E46D859D24CE1C1A01D5F6 /* Pods_JsonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JsonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		800FBD3AAB92DFD067CA0617 /* Pods-JsonUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsonUI.release.xcconfig"; path = "Target Support Files/Pods-JsonUI/Pods-JsonUI.release.xcconfig"; sourceTree = "<group>"; };
 		DC059A29245324B800A160EB /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		DC0A59DB244DE10500930AF7 /* SelectedAnswersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAnswersView.swift; sourceTree = "<group>"; };
 		DC0DC7F1244C3407004A7167 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		DC0DC7F3244C3909004A7167 /* SubmitAnswerRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitAnswerRoute.swift; sourceTree = "<group>"; };
+		DC1E50372459D540008EE023 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DC1E503A2459D726008EE023 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		DC39F0E4244DED70000E4DD9 /* SelectedAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAnswerViewModel.swift; sourceTree = "<group>"; };
 		DC3EC5B6244055B70068DEC9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DC3EC5B8244055C70068DEC9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -106,6 +115,7 @@
 		DCDDEE8D243E1CEA003E2542 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DCDDEE8F243E1CEE003E2542 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DCF1727B24474A2B00D3E6A8 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		FBEEFA599871ABB74660C4E3 /* Pods_JsonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JsonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCC0F217243E376C00B95A61 /* Lottie in Frameworks */,
-				DC8201E32442E6160022738C /* IQKeyboardManagerSwift in Frameworks */,
+				91A0DD8CD1364D1CB7AF198F /* Pods_JsonUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,12 +131,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5749C8861F9C0C318D56DCFB /* Pods_JsonUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7DAC6CB93FC991C0EE2993C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4495F60AE357BBA61614D7E9 /* Pods-JsonUI.debug.xcconfig */,
+				800FBD3AAB92DFD067CA0617 /* Pods-JsonUI.release.xcconfig */,
+				3747159615DB3266A0B8ED7F /* Pods-JsonUITests.debug.xcconfig */,
+				1B1E7EB22880975148C6B0D9 /* Pods-JsonUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D44226D09075E1D188D2503E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBEEFA599871ABB74660C4E3 /* Pods_JsonUI.framework */,
+				63E46D859D24CE1C1A01D5F6 /* Pods_JsonUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DC0DC7F0244C33F1004A7167 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +297,7 @@
 				DC8201F62442EB3F0022738C /* Views */,
 				DC8201F92442EBBB0022738C /* UserDefaultWrapper.swift */,
 				DC059A29245324B800A160EB /* AppConfig.swift */,
+				DC1E503A2459D726008EE023 /* RemoteConfig.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -285,6 +316,8 @@
 				DCDDEE62243E1A7C003E2542 /* JsonUI */,
 				DCDDEE79243E1A7D003E2542 /* JsonUITests */,
 				DCDDEE61243E1A7C003E2542 /* Products */,
+				7DAC6CB93FC991C0EE2993C7 /* Pods */,
+				D44226D09075E1D188D2503E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -300,6 +333,7 @@
 		DCDDEE62243E1A7C003E2542 /* JsonUI */ = {
 			isa = PBXGroup;
 			children = (
+				DC1E50372459D540008EE023 /* GoogleService-Info.plist */,
 				DCB8242D24485C8C00FA0D89 /* UIComponents */,
 				DC8201F72442EB520022738C /* Repositories */,
 				DCC0F21B243E380E00B95A61 /* Assets */,
@@ -360,9 +394,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCDDEE7F243E1A7D003E2542 /* Build configuration list for PBXNativeTarget "JsonUI" */;
 			buildPhases = (
+				8339DA5227F4BC7FBDD288B0 /* [CP] Check Pods Manifest.lock */,
 				DCDDEE5C243E1A7C003E2542 /* Sources */,
 				DCDDEE5D243E1A7C003E2542 /* Frameworks */,
 				DCDDEE5E243E1A7C003E2542 /* Resources */,
+				7E1AF5CA13CDA76589363461 /* [CP] Embed Pods Frameworks */,
+				DC1E50392459D611008EE023 /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -370,8 +407,6 @@
 			);
 			name = JsonUI;
 			packageProductDependencies = (
-				DCC0F216243E376C00B95A61 /* Lottie */,
-				DC8201E22442E6160022738C /* IQKeyboardManagerSwift */,
 			);
 			productName = JsonUI;
 			productReference = DCDDEE60243E1A7C003E2542 /* Zent LMS.app */;
@@ -381,6 +416,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCDDEE82243E1A7D003E2542 /* Build configuration list for PBXNativeTarget "JsonUITests" */;
 			buildPhases = (
+				87605188487D1BD73E5DA2B6 /* [CP] Check Pods Manifest.lock */,
 				DCDDEE72243E1A7D003E2542 /* Sources */,
 				DCDDEE73243E1A7D003E2542 /* Frameworks */,
 				DCDDEE74243E1A7D003E2542 /* Resources */,
@@ -425,8 +461,6 @@
 			);
 			mainGroup = DCDDEE57243E1A7B003E2542;
 			packageReferences = (
-				DCC0F215243E376C00B95A61 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				DC8201E12442E6160022738C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = DCDDEE61243E1A7C003E2542 /* Products */;
 			projectDirPath = "";
@@ -448,6 +482,7 @@
 				DCDDEE6D243E1A7D003E2542 /* Preview Assets.xcassets in Resources */,
 				DCC0F21D243E383100B95A61 /* qr_scanner.json in Resources */,
 				DCDDEE6A243E1A7D003E2542 /* Assets.xcassets in Resources */,
+				DC1E50382459D540008EE023 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +494,89 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E1AF5CA13CDA76589363461 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JsonUI/Pods-JsonUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JsonUI/Pods-JsonUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JsonUI/Pods-JsonUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8339DA5227F4BC7FBDD288B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JsonUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87605188487D1BD73E5DA2B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JsonUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC1E50392459D611008EE023 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}",
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DCDDEE5C243E1A7C003E2542 /* Sources */ = {
@@ -484,6 +602,7 @@
 				DC3EC5B9244055C70068DEC9 /* LoginViewModel.swift in Sources */,
 				DCB824352448903100FA0D89 /* Font+Extensions.swift in Sources */,
 				DC059A2A245324B800A160EB /* AppConfig.swift in Sources */,
+				DC1E503B2459D726008EE023 /* RemoteConfig.swift in Sources */,
 				DCDDEE68243E1A7C003E2542 /* ContentView.swift in Sources */,
 				DCB824372448969B00FA0D89 /* String+Extensions.swift in Sources */,
 				DC3EC5C82440641C0068DEC9 /* LoginResponse.swift in Sources */,
@@ -659,10 +778,11 @@
 		};
 		DCDDEE80243E1A7D003E2542 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4495F60AE357BBA61614D7E9 /* Pods-JsonUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"JsonUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 8C98S3WY53;
 				ENABLE_PREVIEWS = YES;
@@ -682,10 +802,11 @@
 		};
 		DCDDEE81243E1A7D003E2542 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 800FBD3AAB92DFD067CA0617 /* Pods-JsonUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"JsonUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 8C98S3WY53;
 				ENABLE_PREVIEWS = YES;
@@ -705,6 +826,7 @@
 		};
 		DCDDEE83243E1A7D003E2542 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3747159615DB3266A0B8ED7F /* Pods-JsonUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -727,6 +849,7 @@
 		};
 		DCDDEE84243E1A7D003E2542 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B1E7EB22880975148C6B0D9 /* Pods-JsonUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -778,38 +901,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		DC8201E12442E6160022738C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:hackiftekhar/IQKeyboardManager.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.5.5;
-			};
-		};
-		DCC0F215243E376C00B95A61 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:airbnb/lottie-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.6;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		DC8201E22442E6160022738C /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DC8201E12442E6160022738C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
-		};
-		DCC0F216243E376C00B95A61 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DCC0F215243E376C00B95A61 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DCDDEE58243E1A7B003E2542 /* Project object */;
 }

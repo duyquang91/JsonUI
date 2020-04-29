@@ -14,7 +14,7 @@ struct LoginRoute: APIRoutable {
     
     let password: String
     
-    let url = "https://stag.devmind.edu.vn/api/login"
+    let url = AppRemoteConfig.shared.loginUrl
     
     let headers: [String: String]? = ["Content-Type": "application/json"]
     
