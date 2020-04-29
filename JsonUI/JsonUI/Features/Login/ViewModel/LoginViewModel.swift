@@ -15,8 +15,8 @@ class LoginViewModel: ObservableObject {
     
     // Inputs
     #if DEBUG
-    @Published var userName: String = "wljodwaf@yomail.info"
-    @Published var password: String = "Zent@2o2o"
+    @Published var userName: String = "test@gmail.com"
+    @Published var password: String = "Test@123"
     #else
     @Published var userName: String = ""
     @Published var password: String = ""
@@ -58,7 +58,6 @@ class LoginViewModel: ObservableObject {
             .sink(receiveValue: { [weak self] loginResponse in
                 if let userInfo = loginResponse.data?.userInfo {
                     AppConfig.shared.userInfo = userInfo
-
                 }
                 self?.errorText = loginResponse.status.code == 0 ? "" : loginResponse.status.message
             })

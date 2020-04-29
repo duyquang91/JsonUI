@@ -19,7 +19,7 @@ struct LoginView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .center, spacing: 8) {
                         
-                        Image("zent_logo")
+                        Image("logo")
                             .resizable()
                             .frame(width: 200, height: 200)
                         

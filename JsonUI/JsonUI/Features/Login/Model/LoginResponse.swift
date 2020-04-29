@@ -26,12 +26,6 @@ struct LoginData: Codable {
 struct UserInfo: Codable {
     let name: String
     let email: String
-    let address: String
+    let address: String?
     let mobile: String
-}
-
-extension UserInfo {
-    var displayString: String {
-        "name".locatized + ": \(name)\n" + "email".locatized + ": \(email)\n" + "mobile".locatized + ": \(mobile)\n" + "address".locatized + ": \(address)"
-    }
 }
