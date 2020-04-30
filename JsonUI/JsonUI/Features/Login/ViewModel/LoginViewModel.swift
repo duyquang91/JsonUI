@@ -52,7 +52,7 @@ class LoginViewModel: ObservableObject {
                     }, receiveCancel: { [weak self] in
                         self?.isLoading = false
                 })
-                .catch { Just(LoginResponse(status: APIClientResponseStatus(code: 1, message: $0.localizedDescription), data: nil))} }
+                .catch { Just(LoginResponse(status: APIClientResponseStatus(code: 1, message: ($0 as NSError).localizedDescription), data: nil))} }
             .switchToLatest()
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] loginResponse in
